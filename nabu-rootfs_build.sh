@@ -6,7 +6,7 @@ then
   exit
 fi
 
-VERSION="24.04"
+VERSION="24.04.1"
 KERNEL=$1
 
 truncate -s 10G rootfs.img
