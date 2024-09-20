@@ -6,9 +6,10 @@ then
   exit
 fi
 
-VERSION="23.10"
+VERSION="24.04"
+KERNEL=$1
 
-truncate -s 6G rootfs.img
+truncate -s 10G rootfs.img
 mkfs.ext4 rootfs.img
 mkdir rootdir
 mount -o loop rootfs.img rootdir
@@ -48,11 +49,7 @@ chroot rootdir apt update
 chroot rootdir apt upgrade -y
 
 #u-boot-tools breaks grub installation
-chroot rootdir apt install -y bash-completion sudo ssh nano u-boot-tools- $1
-
-#chroot rootdir gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-only-mounted true
-
-
+chroot rootdir apt install -y bash-completion sudo ssh nano u-boot-tools- lomiri-desktop-session mir-graphics-drivers-desktop lightdm dpkg-dev
 
 #Device specific
 chroot rootdir apt install -y rmtfs protection-domain-mapper tqftpserv
@@ -60,12 +57,11 @@ chroot rootdir apt install -y rmtfs protection-domain-mapper tqftpserv
 #Remove check for "*-laptop"
 sed -i '/ConditionKernelVersion/d' rootdir/lib/systemd/system/pd-mapper.service
 
-cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$2/*-xiaomi-nabu.deb rootdir/tmp/
+cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$KERNEL/*-xiaomi-nabu.deb rootdir/tmp/
 chroot rootdir dpkg -i /tmp/linux-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/firmware-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/alsa-xiaomi-nabu.deb
 rm rootdir/tmp/*-xiaomi-nabu.deb
-
 
 #EFI
 chroot rootdir apt install -y grub-efi-arm64
@@ -107,4 +103,4 @@ rm -d rootdir
 
 echo 'cmdline for legacy boot: "root=PARTLABEL=linux"'
 
-7zz a rootfs.7z rootfs.img
+xz rootfs.img
