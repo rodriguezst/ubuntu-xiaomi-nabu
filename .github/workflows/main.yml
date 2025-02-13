@@ -17,7 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   kernel:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     strategy:
             matrix:
                 version: [v6.1.98-nabu]
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v4
         
       - name: Install Dependencies
-        run: sudo apt update && sudo apt install build-essential gcc-aarch64-linux-gnu bc flex bison 7zip kmod bash cpio binutils tar git wget dpkg libssl-dev
+        run: sudo apt update && sudo apt install build-essential bc flex bison 7zip kmod bash cpio binutils tar git wget dpkg libssl-dev
 
       - name: Build kernel
         run: sudo sh nabu-kernel_build.sh ${{ matrix.version }}
@@ -41,7 +41,7 @@ jobs:
           
   rootfs:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     needs: kernel
     strategy:
             matrix:
@@ -54,7 +54,7 @@ jobs:
         with:
           pattern: xiaomi-nabu-debs*
       - name: Install Dependencies
-        run: sudo apt update && sudo apt install unzip build-essential gcc-aarch64-linux-gnu bc flex bison kmod bash cpio binutils tar git wget dpkg libssl-dev
+        run: sudo apt update && sudo apt install unzip build-essential bc flex bison kmod bash cpio binutils tar git wget dpkg libssl-dev android-sdk-libsparse-utils
 
       - name: Build rootfs
         run: sudo sh nabu-rootfs_build.sh ${{ matrix.kernel }}
