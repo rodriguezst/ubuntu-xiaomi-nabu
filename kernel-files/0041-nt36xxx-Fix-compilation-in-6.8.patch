@@ -1,0 +1,25 @@
+From fb23f82749545fd482a2185f4ef44e594278807b Mon Sep 17 00:00:00 2001
+From: map220v <map220v300@gmail.com>
+Date: Wed, 20 Mar 2024 14:30:56 +0000
+Subject: [PATCH 41/56] nt36xxx: Fix compilation in 6.8
+
+---
+ drivers/input/touchscreen/nt36523/nt36xxx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.c b/drivers/input/touchscreen/nt36523/nt36xxx.c
+index f8f8c3e19b34..bd731ac307ea 100644
+--- a/drivers/input/touchscreen/nt36523/nt36xxx.c
++++ b/drivers/input/touchscreen/nt36523/nt36xxx.c
+@@ -1257,7 +1257,7 @@ static int32_t nvt_ts_probe(struct spi_device *client)
+ 	spi_set_drvdata(client, ts);
+ 
+ 	//---prepare for spi parameter---
+-	if (ts->client->master->flags & SPI_MASTER_HALF_DUPLEX) {
++	if (ts->client->master->flags & SPI_CONTROLLER_HALF_DUPLEX) {
+ 		NVT_ERR("Full duplex not supported by master\n");
+ 		ret = -EIO;
+ 		goto err_ckeck_full_duplex;
+-- 
+2.48.1
+

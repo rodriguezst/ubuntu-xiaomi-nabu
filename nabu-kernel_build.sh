@@ -4,23 +4,15 @@
 set -euo pipefail
 
 # Configuration
-KERNEL_REPO="https://github.com/rodriguezst/linux.git"
+KERNEL_REPO="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
+KERNEL_BRANCH="v6.12.13"
 BUILD_DIR="linux"
-DEFCONFIG="xiaomi_nabu_defconfig"
-DTB_PATH="qcom/sm8150-xiaomi-nabu-maverick.dtb"
+DTB_PATH="qcom/sm8150-xiaomi-nabu.dtb"
 DEBIAN_PACKAGES=(
     "linux-xiaomi-nabu"
     "firmware-xiaomi-nabu"
     "alsa-xiaomi-nabu"
 )
-
-# Check parameters
-if [ $# -lt 1 ]; then
-    echo "Error: Missing kernel branch parameter" >&2
-    echo "Usage: $0 <kernel_branch>" >&2
-    exit 1
-fi
-KERNEL_BRANCH="$1"
 
 # Cleanup function
 cleanup() {
@@ -39,6 +31,11 @@ trap cleanup EXIT INT TERM
 echo "Cloning kernel repository..."
 git clone "$KERNEL_REPO" --branch "$KERNEL_BRANCH" --depth 1 "$BUILD_DIR"
 cd "$BUILD_DIR"
+echo "Applying patches..."
+git am --whitespace=fix ../kernel-files/*.patch
+
+# Copy kernel configuration
+cp "../kernel-files/config" .config
 
 # Determine system architecture and set build configuration
 echo "Configuring build environment..."
@@ -60,9 +57,9 @@ if ! uname -m | grep -q "aarch64"; then
     MAKE_FLAGS+=("CROSS_COMPILE=$CROSS_COMPILE")
 fi
 
-echo "Building kernel with $DEFCONFIG..."
-make "${MAKE_FLAGS[@]}" "$DEFCONFIG"
-make "${MAKE_FLAGS[@]}"
+echo "Building kernel..."
+make "${MAKE_FLAGS[@]}" oldconfig
+make "${MAKE_FLAGS[@]}" Image.gz modules dtbs
 
 # Get kernel version
 _kernel_version="$(make kernelrelease -s)"
@@ -73,8 +70,19 @@ echo "Installing kernel and device tree..."
 mkdir -p "../linux-xiaomi-nabu/boot"
 
 # Copy kernel image and device tree
+cp "arch/arm64/boot/Image" "../linux-xiaomi-nabu/boot/vmlinux-$_kernel_version"
 cp "arch/arm64/boot/Image.gz" "../linux-xiaomi-nabu/boot/vmlinuz-$_kernel_version"
 cp "arch/arm64/boot/dts/$DTB_PATH" "../linux-xiaomi-nabu/boot/dtb-$_kernel_version"
+
+# Build Unified Kernel Image (UKI)
+ukify build \
+    --linux="../linux-xiaomi-nabu/boot/vmlinux-$_kernel_version" \
+    --cmdline="console=tty0 root=PARTLABEL=linux" \
+    --uname="$_kernel_version" \
+    --devicetree="../linux-xiaomi-nabu/boot/dtb-$_kernel_version" \
+    --secureboot-private-key="../sb.key" \
+    --secureboot-certificate="../sb.crt" \
+    --output="../uki-$_kernel_version.efi"
 
 # Update package version
 echo "Updating package version..."

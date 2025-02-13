@@ -18,14 +18,6 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# Check kernel parameter
-if [ $# -lt 1 ]; then
-    echo "Error: Missing kernel parameter" >&2
-    echo "Usage: $0 <kernel_version>" >&2
-    exit 1
-fi
-KERNEL="$1"
-
 # Cleanup function to ensure proper unmounting
 cleanup() {
     local exit_code=$?
@@ -109,11 +101,11 @@ chroot "$ROOTDIR" apt install -y \
     sudo \
     ssh \
     nano \
-    u-boot-tools- \
     lomiri-desktop-session \
     mir-graphics-drivers-desktop \
     lightdm \
-    dpkg-dev
+    dpkg-dev \
+    gnome-initial-setup
 
 # Install device-specific packages
 echo "Installing device-specific packages..."
@@ -124,19 +116,11 @@ sed -i '/ConditionKernelVersion/d' "$ROOTDIR/lib/systemd/system/pd-mapper.servic
 
 # Install device-specific packages
 echo "Installing device packages..."
-cp "/home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$KERNEL"/*-xiaomi-nabu.deb "$ROOTDIR/tmp/"
+cp "/home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs"/*-xiaomi-nabu.deb "$ROOTDIR/tmp/"
 for pkg in linux firmware alsa; do
     chroot "$ROOTDIR" dpkg -i "/tmp/$pkg-xiaomi-nabu.deb"
 done
 rm "$ROOTDIR/tmp"/*-xiaomi-nabu.deb
-
-# Configure EFI boot
-echo "Configuring EFI..."
-chroot "$ROOTDIR" apt install -y grub-efi-arm64
-sed -i \
-    -e 's/^#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/' \
-    -e 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT=""/' \
-    "$ROOTDIR/etc/default/grub"
 
 # Configure fstab
 cat > "$ROOTDIR/etc/fstab" << EOF
@@ -145,8 +129,8 @@ PARTLABEL=esp /boot/efi vfat umask=0077 0 1
 EOF
 
 # Setup initial system configuration
-mkdir -p "$ROOTDIR/var/lib/gdm"
-touch "$ROOTDIR/var/lib/gdm/run-initial-setup"
+#mkdir -p "$ROOTDIR/var/lib/gdm"
+#touch "$ROOTDIR/var/lib/gdm/run-initial-setup"
 
 # Clean up package cache
 chroot "$ROOTDIR" apt clean

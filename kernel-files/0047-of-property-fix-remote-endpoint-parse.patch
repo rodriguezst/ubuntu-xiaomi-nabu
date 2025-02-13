@@ -1,0 +1,25 @@
+From 63b1b23492c9e9fd5d939f51f7fbd62ea112ff8c Mon Sep 17 00:00:00 2001
+From: Jianhua Lu <lujianhua000@gmail.com>
+Date: Wed, 3 Apr 2024 23:03:35 +0800
+Subject: [PATCH 47/56] of: property: fix remote-endpoint parse
+
+---
+ drivers/of/property.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/of/property.c b/drivers/of/property.c
+index 906a33ae717f..516e64d40ffe 100644
+--- a/drivers/of/property.c
++++ b/drivers/of/property.c
+@@ -1347,7 +1347,7 @@ static struct device_node *parse_remote_endpoint(struct device_node *np,
+ 	if (index > 0 || strcmp(prop_name, "remote-endpoint"))
+ 		return NULL;
+ 
+-	return of_graph_get_remote_port_parent(np);
++	return of_graph_get_remote_port(np);
+ }
+ 
+ static const struct supplier_bindings of_supplier_bindings[] = {
+-- 
+2.48.1
+

@@ -18,34 +18,46 @@ jobs:
   # This workflow contains a single job called "build"
   kernel:
     runs-on: ubuntu-24.04-arm
-    strategy:
-            matrix:
-                version: [v6.1.98-nabu]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
         
       - name: Install Dependencies
-        run: sudo apt update && sudo apt install build-essential bc flex bison 7zip kmod bash cpio binutils tar git wget dpkg libssl-dev
+        run: sudo apt update && sudo apt install build-essential bc flex bison 7zip kmod bash cpio binutils tar git wget dpkg libssl-dev systemd-ukify systemd-boot-efi
+
+      - name: Setup SSL Files
+        shell: bash
+        run: |
+          # Decode and store key
+          echo "${{ secrets.SECURE_BOOT_KEY }}" | base64 -d > sb.key
+          # Decode and store certificate
+          echo "${{ secrets.SECURE_BOOT_CERTIFICATE }}" | base64 -d > sb.crt
+          # Set correct permissions
+          chmod 600 sb.key
+          chmod 644 sb.crt
 
       - name: Build kernel
-        run: sudo sh nabu-kernel_build.sh ${{ matrix.version }}
+        run: sudo bash nabu-kernel_build.sh
 
       - name: Upload deb packages
         uses: actions/upload-artifact@v4.0.0
         with:
           # Artifact name
-          name: xiaomi-nabu-debs_${{ matrix.version }}
+          name: xiaomi-nabu-debs
           path: ${{ github.workspace }}/*.deb
+
+      - name: Upload UKI (EFI Image)
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          # Artifact name
+          name: unified_kernel_image
+          path: ${{ github.workspace }}/*.efi
           
   rootfs:
     # The type of runner that the job will run on
     runs-on: ubuntu-24.04-arm
     needs: kernel
-    strategy:
-            matrix:
-                kernel: [v6.1.98-nabu]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -57,12 +69,12 @@ jobs:
         run: sudo apt update && sudo apt install unzip build-essential bc flex bison kmod bash cpio binutils tar git wget dpkg libssl-dev android-sdk-libsparse-utils
 
       - name: Build rootfs
-        run: sudo sh nabu-rootfs_build.sh ${{ matrix.kernel }}
+        run: sudo bash nabu-rootfs_build.sh
 
       - name: Upload rootfs.img
         uses: actions/upload-artifact@v4.0.0
         with:
           # Artifact name
-          name: rootfs_${{ matrix.kernel }}
+          name: rootfs
           path: rootfs.img.xz
           compression-level: 0
