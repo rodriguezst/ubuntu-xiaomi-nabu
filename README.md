@@ -1,22 +1,41 @@
-<img align="right" src="https://raw.githubusercontent.com/jiganomegsdfdf/ubuntu-xiaomi-nabu/master/ubnt.png" width="425" alt="Ubuntu 23.04 Running On A Xiaomi Pad 5">
+<img align="right" src="https://raw.githubusercontent.com/rodriguezst/ubuntu-xiaomi-nabu/master/ubnt.png" width="425" alt="Ubuntu 23.04 Running On A Xiaomi Pad 5">
 
 # Ubuntu for Xiaomi Pad 5
-This repo contians scripts for automatic building of ubuntu rootfs and kernel for Xiaomi Pad 5
+This repository contains scripts for automated building of Ubuntu rootfs and kernel for Xiaomi Pad 5.
 
-# Where do i get needed files?
-Actually, just go to the "Actions" tab, find one of latest builds and download file named **rootfs_(Desktop Environment you want)_(Kernel version you want)** 
-<br>for update download file named **xiaomi-nabu-debs_(Kernel version you want)**
+## Getting Started
 
-# Update info
-- Unpack .zip you downloaded
-- Run dpkg -i *-xiaomi-nabu.deb
-- P.S. if you are moving to another kernel version make that after installing .deb's
-  <br>**First method**: just replace your old kernel version with the new kernel version in /boot/grub/grub.cfg
-  <br>**Second method**: grub-install and grub-mkconfig -o /boot/grub/grub.cfg
+### Download Required Files
+1. Navigate to the "Actions" tab
+2. Locate the latest successful build
+3. Download the following file based on your needs:
+   - For fresh installation: `rootfs_[VARIANT].zip` and `unified_kernel_image.zip`
 
-# Install info
-- Unpack .zip you downloaded
-- Unpack extracted .7z (there you take rootfs.img)
-- rootfs.img must be flashed to the partition named "linux"
-- Partition for efi boot must be named "esp"
-- Install grub using grub-install and grub-mkconfig -o /boot/grub/grub.cfg. If done from android make sure that efs partition is mounted at /boot/efi, after generating grub.cfg change all of "/dev/block/" to "/dev/"
+     Replace `[VARIANT]` with `dd` or `fastboot` depending on the flash method you plan on using
+   - For updates: `xiaomi-nabu-debs.zip` and `unified_kernel_image.zip`
+
+### Installation Process
+1. Extract the downloaded rootfs ZIP file
+2. Extract the resulting `.xz` file to obtain `rootfs.img` (for dd) or `rootfs.sparse.img` (for fastboot)
+3. Prepare your partitions:
+   - Flash `rootfs.img` to the partition named "linux"
+      - a) Using fastboot from another computer:
+      ```bash
+      fastboot flash linux rootfs.img
+      ```
+      - b) Using dd (from Linux/Termux/TWRP...):
+      ```bash
+      dd if=rootfs.sparse.img of=/dev/block/platform/soc/1d84000.ufshc/by-name/linux bs=100M status=progress
+      ```
+   - Ensure EFI boot partition is named "esp"
+4. Copy `uki-[KERNEL-VERSION].efi` file to `esp` at `EFI/ubuntu/uki-[KERNEL-VERSION].efi`
+
+   NOTE: If using UEFI from Project Renegade rename kernel to `EFI/ubuntu/grubaa64.efi` so that it gets autodetected by simple-init
+
+### Update Process
+1. Extract the downloaded update ZIP file
+2. Install the Debian packages:
+   ```bash
+   dpkg -i *-xiaomi-nabu.deb
+   ```
+3. Copy `uki-[KERNEL-VERSION].efi` file to `esp` at `EFI/ubuntu/uki-[KERNEL-VERSION].efi`

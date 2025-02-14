@@ -101,11 +101,11 @@ chroot "$ROOTDIR" apt install -y \
     sudo \
     ssh \
     nano \
-    lomiri-desktop-session \
-    mir-graphics-drivers-desktop \
-    lightdm \
+    u-boot-tools- \
+    ubuntu-desktop-minimal \
     dpkg-dev \
-    gnome-initial-setup
+    gnome-initial-setup \
+    cloud-init-
 
 # Install device-specific packages
 echo "Installing device-specific packages..."
@@ -116,7 +116,7 @@ sed -i '/ConditionKernelVersion/d' "$ROOTDIR/lib/systemd/system/pd-mapper.servic
 
 # Install device-specific packages
 echo "Installing device packages..."
-cp "/home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs"/*-xiaomi-nabu.deb "$ROOTDIR/tmp/"
+cp "xiaomi-nabu-debs"/*-xiaomi-nabu.deb "$ROOTDIR/tmp/"
 for pkg in linux firmware alsa; do
     chroot "$ROOTDIR" dpkg -i "/tmp/$pkg-xiaomi-nabu.deb"
 done
@@ -129,11 +129,14 @@ PARTLABEL=esp /boot/efi vfat umask=0077 0 1
 EOF
 
 # Setup initial system configuration
-#mkdir -p "$ROOTDIR/var/lib/gdm"
-#touch "$ROOTDIR/var/lib/gdm/run-initial-setup"
+mkdir -p "$ROOTDIR/var/lib/gdm3"
+touch "$ROOTDIR/var/lib/gdm3/run-initial-setup"
 
 # Clean up package cache
 chroot "$ROOTDIR" apt clean
+
+# Remove previously created resolv.conf
+rm -rf "$ROOTDIR/etc/resolv.conf"
 
 # Cleanup QEMU if installed
 if ! uname -m | grep -q aarch64; then
@@ -146,13 +149,23 @@ fi
 
 # Sparsify the image using android-sdk-libsparse-utils
 echo "Sparsifying rootfs image..."
-mv "$ROOTFS_IMAGE" "$ROOTFS_IMAGE.tmp"
-img2simg "$ROOTFS_IMAGE.tmp" "$ROOTFS_IMAGE"
-rm -rf "$ROOTFS_IMAGE.tmp"
+# Remove .img extension and create sparse image
+SPARSE_IMAGE="${ROOTFS_IMAGE%.img}.sparse.img"
+if ! command -v img2simg &> /dev/null; then
+    echo "Error: img2simg not found." >&2
+    exit 1
+fi
 
-# Compress the image
-echo "Compressing rootfs image..."
-xz "$ROOTFS_IMAGE"
+if ! img2simg "$ROOTFS_IMAGE" "$SPARSE_IMAGE" 2>/dev/null; then
+    echo "Error: Failed to create sparse image from $ROOTFS_IMAGE" >&2
+    exit 1
+fi
+echo "Successfully created sparse image: $SPARSE_IMAGE"
+
+# Compress both images in parallel
+echo "Compressing images..."
+xz "$ROOTFS_IMAGE" &
+xz "$SPARSE_IMAGE" &
+wait
 
 echo "Build complete!"
-echo 'cmdline for legacy boot: "root=PARTLABEL=linux"'

@@ -71,10 +71,18 @@ jobs:
       - name: Build rootfs
         run: sudo bash nabu-rootfs_build.sh
 
-      - name: Upload rootfs.img
+      - name: Upload rootfs for dd
         uses: actions/upload-artifact@v4.0.0
         with:
           # Artifact name
-          name: rootfs
+          name: rootfs_dd
           path: rootfs.img.xz
+          compression-level: 0
+
+      - name: Upload rootfs for fastboot
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          # Artifact name
+          name: rootfs_fastboot
+          path: rootfs.sparse.img.xz
           compression-level: 0
