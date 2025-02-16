@@ -1,0 +1,8 @@
+Package: tweaks-xiaomi-nabu
+Version: 1.0
+Architecture: arm64
+Maintainer: rodriguezst <2828844+rodriguezst@users.noreply.github.com>
+Priority: optional
+Section: misc
+Description: Post-installation tweaks for Xiaomi Pad 5
+ Contains system tweaks and one-time setup scripts for Xiaomi Pad 5.

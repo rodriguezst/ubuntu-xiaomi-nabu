@@ -1,0 +1,22 @@
+[Unit]
+Description=Xiaomi Pad 5 Post-installation Setup
+After=network.target
+ConditionPathExists=/lib/nabu-tweaks/postinstall.sh
+
+[Service]
+Type=oneshot
+ExecStart=/lib/nabu-tweaks/postinstall.sh
+ExecStartPost=/bin/systemctl disable nabu-postinstall.service
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/log
+
+[Install]
+WantedBy=multi-user.target

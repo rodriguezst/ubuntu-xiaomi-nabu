@@ -1,0 +1,51 @@
+#!/bin/bash
+set -e
+
+# Logger function
+log() {
+    echo "nabu-postinst: $1" | tee -a /var/log/nabu-postinst.log
+}
+
+# Error handler
+handle_error() {
+    log "Error occurred in postinst script at line $1"
+    exit 1
+}
+
+# Set error handler
+trap 'handle_error "$LINENO"' ERR
+
+log "Starting post-installation setup..."
+
+# Ensure required directories exist
+if [ ! -d "/lib/nabu-tweaks" ]; then
+    log "Error: Required directory /lib/nabu-tweaks not found"
+    exit 1
+fi
+
+# Set correct permissions
+log "Setting file permissions..."
+chmod 755 /lib/nabu-tweaks/postinstall.sh || {
+    log "Failed to set permissions on postinstall.sh"
+    exit 1
+}
+
+# Reload systemd daemon and enable service
+log "Configuring systemd service..."
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl daemon-reload || {
+        log "Failed to reload systemd daemon"
+        exit 1
+    }
+    systemctl enable nabu-postinstall.service || {
+        log "Failed to enable nabu-postinstall service"
+        exit 1
+    }
+    log "Successfully enabled nabu-postinstall service"
+else
+    log "Error: systemd not found"
+    exit 1
+fi
+
+log "Post-installation setup completed successfully"
+exit 0

@@ -12,6 +12,7 @@ DEBIAN_PACKAGES=(
     "linux-xiaomi-nabu"
     "firmware-xiaomi-nabu"
     "alsa-xiaomi-nabu"
+    "tweaks-xiaomi-nabu"
 )
 
 # Cleanup function

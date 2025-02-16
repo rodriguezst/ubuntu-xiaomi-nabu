@@ -117,7 +117,7 @@ sed -i '/ConditionKernelVersion/d' "$ROOTDIR/lib/systemd/system/pd-mapper.servic
 # Install device-specific packages
 echo "Installing device packages..."
 cp "xiaomi-nabu-debs"/*-xiaomi-nabu.deb "$ROOTDIR/tmp/"
-for pkg in linux firmware alsa; do
+for pkg in linux firmware alsa tweaks; do
     chroot "$ROOTDIR" dpkg -i "/tmp/$pkg-xiaomi-nabu.deb"
 done
 rm "$ROOTDIR/tmp"/*-xiaomi-nabu.deb
