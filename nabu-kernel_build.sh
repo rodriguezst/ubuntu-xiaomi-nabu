@@ -77,7 +77,7 @@ cp "arch/arm64/boot/dts/$DTB_PATH" "../linux-xiaomi-nabu/boot/dtb-$_kernel_versi
 # Build Unified Kernel Image (UKI)
 ukify build \
     --linux="../linux-xiaomi-nabu/boot/vmlinux-$_kernel_version" \
-    --cmdline="console=tty0 root=PARTLABEL=linux quiet splash" \
+    --cmdline="console=tty0 root=PARTUUID=4049C8DC-6C2B-C740-A95A-BDAA629D4378 rootwait ro cros_efi cros_debug" \
     --uname="$_kernel_version" \
     --devicetree="../linux-xiaomi-nabu/boot/dtb-$_kernel_version" \
     --secureboot-private-key="../sb.key" \
