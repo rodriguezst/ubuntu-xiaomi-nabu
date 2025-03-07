@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # Configuration
-VERSION="24.04.1"
+VERSION="24.04.2"
 IMAGE_SIZE="10G"
 ROOTFS_IMAGE="rootfs.img"
 ROOTDIR="rootdir"
