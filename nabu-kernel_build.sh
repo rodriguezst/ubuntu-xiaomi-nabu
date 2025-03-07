@@ -4,8 +4,8 @@
 set -euo pipefail
 
 # Configuration
-KERNEL_REPO="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-KERNEL_BRANCH="v6.12.13"
+KERNEL_REPO="https://gitlab.com/sm8150-mainline/linux"
+KERNEL_BRANCH="sm8150/6.13"
 BUILD_DIR="linux"
 DTB_PATH="qcom/sm8150-xiaomi-nabu.dtb"
 DEBIAN_PACKAGES=(
@@ -31,8 +31,8 @@ trap cleanup EXIT INT TERM
 echo "Cloning kernel repository..."
 git clone "$KERNEL_REPO" --branch "$KERNEL_BRANCH" --depth 1 "$BUILD_DIR"
 cd "$BUILD_DIR"
-echo "Applying patches..."
-git am --whitespace=fix ../kernel-files/*.patch
+#echo "Applying patches..."
+#git am --whitespace=fix ../kernel-files/*.patch
 
 # Copy kernel configuration
 cp "../kernel-files/config" .config
@@ -58,7 +58,7 @@ if ! uname -m | grep -q "aarch64"; then
 fi
 
 echo "Building kernel..."
-make "${MAKE_FLAGS[@]}" oldconfig
+make "${MAKE_FLAGS[@]}" olddefconfig
 make "${MAKE_FLAGS[@]}" Image.gz modules dtbs
 
 # Get kernel version
