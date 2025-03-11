@@ -1,0 +1,26 @@
+From 676903e389627e7bda18c0e17605df8e4618d858 Mon Sep 17 00:00:00 2001
+From: map220v <map220v300@gmail.com>
+Date: Fri, 4 Aug 2023 01:37:44 +0300
+Subject: [PATCH] arch: arm64: boot: dts: qcom: sm8150 add ufs dependecy on phy
+ clock
+
+---
+ arch/arm64/boot/dts/qcom/sm8150.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
+index 81df34375da70..cc7429a8a4c9a 100644
+--- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
+@@ -2090,6 +2090,8 @@ ufs_mem_hc: ufshc@1d84000 {
+ 			resets = <&gcc GCC_UFS_PHY_BCR>;
+ 			reset-names = "core_reset";
+ 
++			power-domains = <&gcc UFS_PHY_GDSC>;
++
+ 			iommus = <&apps_smmu 0x300 0>;
+ 
+ 			clock-names =
+-- 
+GitLab
+
