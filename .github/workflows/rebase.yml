@@ -1,0 +1,78 @@
+name: rebase-patches
+
+env:
+  REPO: 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git'
+  REF: 'linux-rolling-stable'
+
+on:
+  workflow_dispatch:
+  #schedule: 
+  #  - cron: '0 0 * * *'
+
+jobs:
+  rebase:
+    runs-on: ubuntu-24.04-arm
+    steps:
+
+      - name: Checkout srcdir
+        uses: actions/checkout@v4
+        with:
+          path: srcdir
+
+      - name: Get current kernel version
+        shell: bash
+        run: |
+          KERNEL_BRANCH=$(sed -n 's/^KERNEL_BRANCH="\([^"]*\)".*/\1/p' srcdir/nabu-kernel_build.sh)
+          echo "PREV_REF=${KERNEL_BRANCH}" >> $GITHUB_ENV
+          echo "PREV_REF=${KERNEL_BRANCH}"
+
+      - name: Rebase & regenerate patches
+        shell: bash
+        run: |
+          git clone --depth=1 -b ${{ env.PREV_REF }} ${{ env.REPO }} linux
+          cd linux
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git am --whitespace=fix ../srcdir/kernel-files/*.patch
+          rm -rf ../srcdir/kernel-files/*.patch
+          git fetch --unshallow origin ${{ env.REF }}:${{ env.REF }}
+          git rebase ${{ env.REF }}
+          git log -1 ${{ env.REF }} > ../RELEASE.md
+          git format-patch ${{ env.REF }} --start-number=1 -o ../srcdir/kernel-files -- . ':!arch/*/configs/*' > /dev/null
+          KERNVER=$(grep -E '^VERSION|^PATCHLEVEL|^SUBLEVEL' Makefile | \
+            sed -E 's/[^0-9]*//g' | tr '\n' '.' | sed 's/\.$//' )
+          echo "KERNVER=${KERNVER}" >> $GITHUB_ENV
+          echo "KERNVER=${KERNVER}"
+          echo "NEW_REF=v${KERNVER%.0}" >> $GITHUB_ENV
+          echo "NEW_REF=v${KERNVER%.0}"
+
+      - name: Install kernel build deps
+        if: env.NEW_REF != env.PREV_REF
+        run: sudo apt update && sudo apt install build-essential bc flex bison
+
+      - name: Update config & build
+        if: env.NEW_REF != env.PREV_REF
+        shell: bash
+        run: |
+          cp srcdir/kernel-files/config linux/.config
+          cd linux
+          make olddefconfig
+          make -j$(nproc) Image.gz dtbs modules
+          cp .config ../srcdir/kernel-files/config
+
+      - name: Update build script and push new version
+        if: env.NEW_REF != env.PREV_REF
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd srcdir
+          # Update version numbers in nabu-kernel_build.sh and PKGBUILD
+          sed -i 's/^KERNEL_BRANCH=.*/KERNEL_BRANCH='$NEW_REF'/' nabu-kernel_build.sh
+          # Commit & push changes
+          git diff --name-only --diff-filter=D | xargs git add
+          git add kernel-files/config kernel-files/*.patch nabu-kernel_build.sh
+          git commit -m "update to $KERNVER"
+          git push
+          # Trigger build workflow
+          gh workflow run main.yml --ref $(git rev-parse --abbrev-ref HEAD)
