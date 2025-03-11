@@ -1,7 +1,7 @@
-From 406a468b0501688139ce0660b7655b4085da8408 Mon Sep 17 00:00:00 2001
+From eb208b4fa59a3511fd8733d26d25a9464b902c5e Mon Sep 17 00:00:00 2001
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Date: Sun, 4 Jun 2023 21:44:33 +0300
-Subject: [PATCH 22/56] drm/msm/dsi: change sync mode to sync on DSI0 rather
+Subject: [PATCH 22/58] drm/msm/dsi: change sync mode to sync on DSI0 rather
  than DSI1
 
 Change MSM DSI's sync-dual-dsi mode to resync on DSI0 rather than DSI1.
@@ -76,5 +76,5 @@ index 0be943c8cc45..87872f9598ec 100644
  	msm_dsi_host_cmd_xfer_commit(host, dma_base, len);
  
 -- 
-2.48.1
+2.34.1
 

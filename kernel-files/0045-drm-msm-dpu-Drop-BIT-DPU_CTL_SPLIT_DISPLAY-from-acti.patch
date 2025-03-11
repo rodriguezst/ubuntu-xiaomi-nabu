@@ -1,7 +1,7 @@
-From 0aa0543d501766ab2633d2f6f028034c355c0761 Mon Sep 17 00:00:00 2001
+From b395b99323eccf6b9485ed558a1853faf38914f8 Mon Sep 17 00:00:00 2001
 From: Marijn Suijten <marijn.suijten@somainline.org>
 Date: Mon, 19 Jun 2023 22:23:05 +0200
-Subject: [PATCH 46/56] drm/msm/dpu: Drop BIT(DPU_CTL_SPLIT_DISPLAY) from
+Subject: [PATCH 45/58] drm/msm/dpu: Drop BIT(DPU_CTL_SPLIT_DISPLAY) from
  active-CTL hardware
 
 This is now properly supported, and the bit is ignored on these
@@ -19,7 +19,7 @@ Signed-off-by: Marijn Suijten <marijn.suijten@somainline.org>
  7 files changed, 14 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h
-index 4ca83fc52d4f..43d821114b5a 100644
+index baf261eef1e1..6f3367f113d8 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h
 +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h
 @@ -38,17 +38,16 @@ static const struct dpu_mdp_cfg sm8150_mdp = {
@@ -43,7 +43,7 @@ index 4ca83fc52d4f..43d821114b5a 100644
  	}, {
  		.name = "ctl_2", .id = CTL_2,
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h
-index 5bcdfd8ce517..fc1965c0e64b 100644
+index 967984744024..6a46368711f9 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h
 +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h
 @@ -42,12 +42,12 @@ static const struct dpu_ctl_cfg sc8180x_ctl[] = {
@@ -182,5 +182,5 @@ index 9d5f0ec93ff0..93895d59eccf 100644
  	}, {
  		.name = "ctl_2", .id = CTL_2,
 -- 
-2.48.1
+2.34.1
 

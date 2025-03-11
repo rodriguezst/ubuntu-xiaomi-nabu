@@ -1,15 +1,15 @@
-From 1eca4ab2b7778c509e20c4da36f9565f70e6681f Mon Sep 17 00:00:00 2001
+From 61dda9693aa421ded4ee7ff25674feda60e9c6b9 Mon Sep 17 00:00:00 2001
 From: Nicola Guerrera <guerrera.nicola@gmail.com>
 Date: Sat, 11 Jan 2025 23:55:24 +0100
-Subject: [PATCH] arch: arm64: boot: dts: qcom: sm8150 disable broken crypto
- engine
+Subject: [PATCH 58/58] arch: arm64: boot: dts: qcom: sm8150 disable broken
+ crypto engine
 
 ---
  arch/arm64/boot/dts/qcom/sm8150.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index cc7429a8a4c9a..f2fc8b1e3c38f 100644
+index ad9c15d9dada..27ae08c231c9 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
 @@ -2177,6 +2177,7 @@ crypto: crypto@1dfa000 {
@@ -21,5 +21,5 @@ index cc7429a8a4c9a..f2fc8b1e3c38f 100644
  
  		tcsr_mutex: hwlock@1f40000 {
 -- 
-GitLab
+2.34.1
 

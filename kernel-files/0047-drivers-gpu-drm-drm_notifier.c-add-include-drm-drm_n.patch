@@ -1,7 +1,7 @@
-From ef4fadede082ed36b4d7b5e8ae115f87a4f1fd9b Mon Sep 17 00:00:00 2001
+From 9aa46d82793b6e1416a4d15dddf214c1d5dada98 Mon Sep 17 00:00:00 2001
 From: Pan Ortiz <panjeoc@proton.me>
 Date: Fri, 11 Oct 2024 16:57:15 +0000
-Subject: [PATCH 48/56] drivers: gpu: drm: drm_notifier.c: add #include
+Subject: [PATCH 47/58] drivers: gpu: drm: drm_notifier.c: add #include
  <drm/drm_notifier.h>
 
 ---
@@ -21,5 +21,5 @@ index 792069640ea7..1c598f5e9a8e 100644
  static BLOCKING_NOTIFIER_HEAD(mi_drm_notifier_list);
  
 -- 
-2.48.1
+2.34.1
 

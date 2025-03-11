@@ -1,7 +1,7 @@
-From 2915455a5d69384ca31999bcd17219d48e18db03 Mon Sep 17 00:00:00 2001
+From d393b433914d7111063b5b77d8d0d10af411cb25 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Sun, 15 Sep 2024 16:31:23 +0000
-Subject: [PATCH 43/56] nt36xxx: Fix compilation in 6.9
+Subject: [PATCH 43/58] nt36xxx: Fix compilation in 6.9
 
 ---
  drivers/input/touchscreen/nt36523/nt36xxx.c | 2 +-
@@ -21,5 +21,5 @@ index bd731ac307ea..108f84d0e040 100644
  		ret = -EIO;
  		goto err_ckeck_full_duplex;
 -- 
-2.48.1
+2.34.1
 

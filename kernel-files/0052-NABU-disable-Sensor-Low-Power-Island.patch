@@ -1,7 +1,7 @@
-From 30ead8cc7db82263c17d92227e58943112f9cf87 Mon Sep 17 00:00:00 2001
+From 16b84d5018c800f79aa2616ddc962908007fab02 Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Sat, 23 Nov 2024 21:59:23 +0000
-Subject: [PATCH 53/56] NABU: disable Sensor Low Power Island
+Subject: [PATCH 52/58] NABU: disable Sensor Low Power Island
 
 ---
  arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts | 2 +-
@@ -21,5 +21,5 @@ index 7942033607e6..d7b8af51379a 100644
  };
  
 -- 
-2.48.1
+2.34.1
 

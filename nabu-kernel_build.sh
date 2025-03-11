@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Configuration
 KERNEL_REPO="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-KERNEL_BRANCH="v6.12.13"
+KERNEL_BRANCH=v6.13.6
 BUILD_DIR="linux"
 DTB_PATH="qcom/sm8150-xiaomi-nabu.dtb"
 DEBIAN_PACKAGES=(

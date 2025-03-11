@@ -1,18 +1,18 @@
-From 7bea97636b20d7e3176fa3adef8f7c7167aae632 Mon Sep 17 00:00:00 2001
+From cb40acc8393ea50100bbef4c42782df242246ba6 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Fri, 4 Aug 2023 01:34:06 +0300
-Subject: [PATCH 17/56] SM8150: Add slimbus nodes
+Subject: [PATCH 17/58] SM8150: Add slimbus nodes
 
 ---
  arch/arm64/boot/dts/qcom/sm8150.dtsi | 26 ++++++++++++++++++++++++++
  1 file changed, 26 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index 2089a8645443..62b2aedeeefd 100644
+index fcf4395383ac..81df34375da7 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-@@ -4318,6 +4318,32 @@ apps_smmu: iommu@15000000 {
- 				     <GIC_SPI 409 IRQ_TYPE_LEVEL_HIGH>;
+@@ -4319,6 +4319,32 @@ apps_smmu: iommu@15000000 {
+ 			dma-coherent;
  		};
  
 +		slimbam: dma-controller@17184000 {
@@ -45,5 +45,5 @@ index 2089a8645443..62b2aedeeefd 100644
  			compatible = "qcom,sm8150-adsp-pas";
  			reg = <0x0 0x17300000 0x0 0x4040>;
 -- 
-2.48.1
+2.34.1
 

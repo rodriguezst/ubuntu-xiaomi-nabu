@@ -1,7 +1,7 @@
-From dc0f6a9d3fafeb6da6c18776fc1811c612f0514d Mon Sep 17 00:00:00 2001
+From 0a92f4bb562abb0e6c123ba4f2256cb6a490719a Mon Sep 17 00:00:00 2001
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Date: Sun, 14 Mar 2021 05:03:35 +0300
-Subject: [PATCH 26/56] drm/msm/dpu1: dpu_encoder_phys_*: proper support for
+Subject: [PATCH 26/58] drm/msm/dpu1: dpu_encoder_phys_*: proper support for
  active CTLs
 
 Adapt dpu_encoder_phys_* to properly support active CTLs and their
@@ -16,7 +16,7 @@ Signed-off-by: map220v <map220v300@gmail.com>
  2 files changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_cmd.c b/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_cmd.c
-index 6fc31d47cd1d..f3b4b1ec4421 100644
+index e9bbccc44dad..d1e16da00529 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_cmd.c
 +++ b/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_cmd.c
 @@ -59,6 +59,8 @@ static void _dpu_encoder_phys_cmd_update_intf_cfg(
@@ -29,7 +29,7 @@ index 6fc31d47cd1d..f3b4b1ec4421 100644
  	intf_cfg.stream_sel = cmd_enc->stream_sel;
  	intf_cfg.mode_3d = dpu_encoder_helper_get_3d_blend_mode(phys_enc);
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_vid.c b/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_vid.c
-index d8a2edebfe8c..7e377011b104 100644
+index abd6600046cb..8a618841e3ea 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_vid.c
 +++ b/drivers/gpu/drm/msm/disp/dpu1/dpu_encoder_phys_vid.c
 @@ -298,6 +298,8 @@ static void dpu_encoder_phys_vid_setup_timing_engine(
@@ -52,5 +52,5 @@ index d8a2edebfe8c..7e377011b104 100644
  
  static void dpu_encoder_phys_vid_atomic_mode_set(
 -- 
-2.48.1
+2.34.1
 

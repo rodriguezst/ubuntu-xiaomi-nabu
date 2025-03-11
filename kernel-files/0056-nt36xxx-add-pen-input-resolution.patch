@@ -1,7 +1,7 @@
-From 52a436a167ce413c892a01373557281672fd041d Mon Sep 17 00:00:00 2001
+From f641e67e6eac240f2f2f99890ec1205f76715e5f Mon Sep 17 00:00:00 2001
 From: Nicola Guerrera <guerrera.nicola@gmail.com>
 Date: Thu, 14 Nov 2024 22:57:02 +0100
-Subject: [PATCH] nt36xxx: add pen input resolution
+Subject: [PATCH 56/58] nt36xxx: add pen input resolution
 
 ---
  drivers/input/touchscreen/nt36523/nt36xxx.c | 15 +++++++++++----
@@ -39,7 +39,7 @@ index 108f84d0e040..9f0c58083d25 100644
  		input_set_abs_params(ts->pen_input_dev, ABS_DISTANCE, 0, PEN_DISTANCE_MAX, 0, 0);
  		input_set_abs_params(ts->pen_input_dev, ABS_TILT_X, PEN_TILT_MIN, PEN_TILT_MAX, 0, 0);
 diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.h b/drivers/input/touchscreen/nt36523/nt36xxx.h
-index 8f6efc1d8735..54aaa7f6a7d6 100644
+index 8f6efc1d8735..053fe2ae8fda 100644
 --- a/drivers/input/touchscreen/nt36523/nt36xxx.h
 +++ b/drivers/input/touchscreen/nt36523/nt36xxx.h
 @@ -70,7 +70,9 @@ extern const uint16_t touch_key_array[TOUCH_KEY_NUM];
@@ -49,10 +49,10 @@ index 8f6efc1d8735..54aaa7f6a7d6 100644
 -
 +//---for pen resolution---
 +#define PANEL_DEFAULT_WIDTH_MM 148  // 148mm
-+#define PANEL_DEFAULT_HEIGHT_MM 237 // 237mm 
++#define PANEL_DEFAULT_HEIGHT_MM 237 // 237mm
  /* Enable only when module have tp reset pin and connected to host */
  #define NVT_TOUCH_SUPPORT_HW_RST 0
  
 -- 
-2.47.0
+2.34.1
 

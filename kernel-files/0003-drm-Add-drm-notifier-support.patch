@@ -1,7 +1,7 @@
-From e700a33557ab411c6c2107d278e386624d27e0fc Mon Sep 17 00:00:00 2001
+From 6d460fe6ec9effa7a982ae51bf6e73468b02c36e Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Thu, 4 Aug 2022 13:26:53 +0800
-Subject: [PATCH 03/56] drm: Add drm notifier support
+Subject: [PATCH 03/58] drm: Add drm notifier support
 
 Signed-off-by: map220v <map220v300@gmail.com>
 ---
@@ -13,19 +13,19 @@ Signed-off-by: map220v <map220v300@gmail.com>
  create mode 100644 include/drm/drm_notifier.h
 
 diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-index 784229d4504d..0cb9e9c3875a 100644
+index 06b73068d248..4c4ef10c500e 100644
 --- a/drivers/gpu/drm/Makefile
 +++ b/drivers/gpu/drm/Makefile
-@@ -74,7 +74,8 @@ drm-y := \
+@@ -72,7 +72,8 @@ drm-y := \
  	drm_vblank.o \
  	drm_vblank_work.o \
  	drm_vma_manager.o \
 -	drm_writeback.o
 +	drm_writeback.o \
 +	drm_notifier.o
- drm-$(CONFIG_DRM_LIB_RANDOM) += lib/drm_random.o
- drm-$(CONFIG_COMPAT) += drm_ioc32.o
- drm-$(CONFIG_DRM_PANEL) += drm_panel.o
+ drm-$(CONFIG_DRM_CLIENT) += \
+ 	drm_client.o \
+ 	drm_client_event.o \
 diff --git a/drivers/gpu/drm/drm_notifier.c b/drivers/gpu/drm/drm_notifier.c
 new file mode 100644
 index 000000000000..792069640ea7
@@ -134,5 +134,5 @@ index 000000000000..fd0e976559b8
 +
 +#endif /* _DRM_NOTIFIER_H */
 -- 
-2.48.1
+2.34.1
 

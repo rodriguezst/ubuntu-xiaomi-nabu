@@ -1,7 +1,7 @@
-From 9bd44834d099cb1ddec2f5b76616757d57d038a7 Mon Sep 17 00:00:00 2001
+From 4d9cdfa3bc76a7f8daeca1e6e218ba86ab6c91ee Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 20 Mar 2024 14:29:36 +0000
-Subject: [PATCH 40/56] NABU: Remove deprecated usb_1_role_switch_out node.
+Subject: [PATCH 40/58] NABU: Remove deprecated usb_1_role_switch_out node.
 
 ---
  arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts | 4 ----
@@ -23,5 +23,5 @@ index 08e59997372e..72069c45a4f0 100644
  	/* USB 2.0 only */
  	qcom,select-utmi-as-pipe-clk;
 -- 
-2.48.1
+2.34.1
 

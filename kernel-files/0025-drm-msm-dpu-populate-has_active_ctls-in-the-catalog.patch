@@ -1,7 +1,7 @@
-From 4dd3fc229d4d02b4e9e382f49b2121e9bdfe89d1 Mon Sep 17 00:00:00 2001
+From 33d9e5433259a5e78d12820f0a5e8df978a6d438 Mon Sep 17 00:00:00 2001
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Date: Thu, 11 May 2023 18:44:50 +0300
-Subject: [PATCH 25/56] drm/msm/dpu: populate has_active_ctls in the catalog
+Subject: [PATCH 25/58] drm/msm/dpu: populate has_active_ctls in the catalog
 
 Set the has_active_ctls for all the platforms which need this bit.
 
@@ -22,7 +22,7 @@ Signed-off-by: map220v <map220v300@gmail.com>
  11 files changed, 11 insertions(+)
 
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h
-index 421afacb7248..622a0223af39 100644
+index 36cc9dbc00b5..91d11ba1c79a 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h
 +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_0_sm8150.h
 @@ -14,6 +14,7 @@ static const struct dpu_caps sm8150_dpu_caps = {
@@ -34,7 +34,7 @@ index 421afacb7248..622a0223af39 100644
  	.pixel_ram_size = DEFAULT_PIXEL_RAM_SIZE,
  	.max_hdeci_exp = MAX_HORZ_DECIMATION,
 diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h
-index 641023b102bf..5bcdfd8ce517 100644
+index e8eacdb47967..967984744024 100644
 --- a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h
 +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_1_sc8180x.h
 @@ -14,6 +14,7 @@ static const struct dpu_caps sc8180x_dpu_caps = {
@@ -154,5 +154,5 @@ index a1dbbf5c652f..9d5f0ec93ff0 100644
  	.pixel_ram_size = DEFAULT_PIXEL_RAM_SIZE,
  };
 -- 
-2.48.1
+2.34.1
 

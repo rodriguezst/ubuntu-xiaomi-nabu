@@ -1,7 +1,7 @@
-From 50a15c32a5d6b212396569e1f69e11f3cb28ee52 Mon Sep 17 00:00:00 2001
+From e96c4a76bc36468292d5b9c5fb2caa719f71aff3 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Mon, 8 Jan 2024 21:18:15 +0000
-Subject: [PATCH 20/56] ASoC: qcom: sm8150: Fix compilation in v6.7.0
+Subject: [PATCH 20/58] ASoC: qcom: sm8150: Fix compilation in v6.7.0
 
 ---
  sound/soc/qcom/sm8150.c | 35 ++++++++++++++++++-----------------
@@ -116,5 +116,5 @@ index 192714ca1976..dcbd1cabb786 100644
  
  	if (sruntime && data->stream_prepared[cpu_dai->id]) {
 -- 
-2.48.1
+2.34.1
 

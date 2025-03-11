@@ -1,26 +1,38 @@
-From dc850837f5480bd6d377b12103e83fe639dee2ef Mon Sep 17 00:00:00 2001
+From 9af194f7dee20d02995e340d5f5b9886fb6d48c2 Mon Sep 17 00:00:00 2001
 From: Pan Ortiz <panjeoc@proton.me>
-Date: Tue, 12 Nov 2024 02:53:14 +0000
-Subject: [PATCH 49/56] arch: arm64: boot: dts: qcom: sm8150-xiaomi-nabu.dts:
- add address to bluetooth node Bluetooth doesn't have the mac adress specified
- in eeprom, adding this is needed to get the bluetooth working
+Date: Wed, 13 Nov 2024 13:12:14 +0000
+Subject: [PATCH 49/58] arch: arm64: boot: dts: qcom: sm8150-xiaomi-nabu.dts:
+ add slpi remoteproc to nabu dts This is needed to power the Sensors Low Power
+ Island
 
 ---
- arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts b/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
-index 72069c45a4f0..064618319f20 100644
+index 064618319f20..db137bb583fd 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
 +++ b/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
-@@ -1038,6 +1038,7 @@ bluetooth: bluetooth {
- 		vddrf-supply = <&vreg_l2c_1p3>;
- 		vddch0-supply = <&vreg_l11c_3p3>;
- 		max-speed = <3200000>;
-+		local-bd-address = [ 21 00 00 00 5a ad ];
- 	};
+@@ -30,6 +30,7 @@
+ /delete-node/ &spss_mem;
+ /delete-node/ &cdsp_mem;
+ 
++
+ / {
+ 	model = "Xiaomi Pad 5";
+ 	compatible = "xiaomi,nabu", "qcom,sm8150";
+@@ -809,6 +810,11 @@ &remoteproc_mpss {
+ 	firmware-name = "qcom/sm8150/xiaomi/nabu/modem.mbn";
  };
  
++&remoteproc_slpi {
++ status = "okay";
++ firmware-name = "qcom/sm8150/xiaomi/nabu/slpi_nb.mbn";
++};
++
+ &sound {
+ 	compatible = "qcom,sm8150-sndcard";
+ 	pinctrl-0 = <&quat_tdm_active
 -- 
-2.48.1
+2.34.1
 

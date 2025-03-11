@@ -1,7 +1,7 @@
-From 5cdb1214e706f8b6fb4424754375ece4fc87dfc7 Mon Sep 17 00:00:00 2001
+From e3b9301a4afedf92780187f7ed373ef129995436 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Tue, 9 Jan 2024 11:58:41 +0000
-Subject: [PATCH 32/56] NABU: Add fsa4480 node
+Subject: [PATCH 32/58] NABU: Add fsa4480 node
 
 ---
  .../boot/dts/qcom/sm8150-xiaomi-nabu.dts      | 28 +++++++++++++++++++
@@ -54,5 +54,5 @@ index ee6dfcf5b4bd..8ad0e42cea72 100644
  	};
  };
 -- 
-2.48.1
+2.34.1
 

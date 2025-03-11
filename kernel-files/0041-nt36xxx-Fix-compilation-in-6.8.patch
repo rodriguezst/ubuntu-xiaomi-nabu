@@ -1,7 +1,7 @@
-From fb23f82749545fd482a2185f4ef44e594278807b Mon Sep 17 00:00:00 2001
+From 7003bbf7708d60245a1fb8497f8e035d7d3d393d Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 20 Mar 2024 14:30:56 +0000
-Subject: [PATCH 41/56] nt36xxx: Fix compilation in 6.8
+Subject: [PATCH 41/58] nt36xxx: Fix compilation in 6.8
 
 ---
  drivers/input/touchscreen/nt36523/nt36xxx.c | 2 +-
@@ -21,5 +21,5 @@ index f8f8c3e19b34..bd731ac307ea 100644
  		ret = -EIO;
  		goto err_ckeck_full_duplex;
 -- 
-2.48.1
+2.34.1
 

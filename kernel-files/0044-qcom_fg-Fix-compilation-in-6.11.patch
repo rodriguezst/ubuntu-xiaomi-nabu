@@ -1,7 +1,7 @@
-From bad02db5404888731b1dc60f7191eec5a0971adf Mon Sep 17 00:00:00 2001
+From aae076693985aa6d2e7e210d2a76b17efc9977bb Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Sun, 15 Sep 2024 16:31:42 +0000
-Subject: [PATCH 44/56] qcom_fg: Fix compilation in 6.11
+Subject: [PATCH 44/58] qcom_fg: Fix compilation in 6.11
 
 ---
  drivers/power/supply/qcom_fg.c | 4 ++--
@@ -30,5 +30,5 @@ index d1f7fc1dc9f8..2d6ad9f9718d 100644
  
  static const struct of_device_id fg_match_id_table[] = {
 -- 
-2.48.1
+2.34.1
 
