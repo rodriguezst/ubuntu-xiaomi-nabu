@@ -1,7 +1,7 @@
 From 86abedbd21b995d3e612bad946579de6cbc7bdcb Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 20 Mar 2024 14:18:12 +0000
-Subject: [PATCH 38/58] NABU: Set panel rotation.
+Subject: [PATCH 38/58] NABU: [DISABLED] Set panel rotation.
  https://gitlab.com/sm8250-mainline/linux/-/commit/0c5a27875882447139700b93f3a20a94a411d260
 
 ---
@@ -16,7 +16,7 @@ index 3f39e0b3e261..6d98abe09be6 100644
  		vddio-supply = <&vreg_l14a_1p8>;
  		reset-gpios = <&tlmm 6 GPIO_ACTIVE_LOW>;
  		backlight = <&backlight>;
-+		rotation = <90>;
++		/* rotation = <90>; */
  
  		ports {
  			#address-cells = <1>;
