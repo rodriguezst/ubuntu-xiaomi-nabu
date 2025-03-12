@@ -300,7 +300,7 @@ index da4164f6b7fa..d1f7fc1dc9f8 100644
  			error_present ? BIT(0) : 0);
  	if (ret < 0) {
  		dev_err(chip->dev, "Failed to write dma_ctl: %d\n", ret);
-@@ -1287,7 +1332,7 @@ static int qcom_fg_remove(struct platform_device *pdev)
+@@ -1287,7 +1332,7 @@ static void qcom_fg_remove(struct platform_device *pdev)
  {
  	struct qcom_fg_chip *chip = platform_get_drvdata(pdev);
  
@@ -309,7 +309,7 @@ index da4164f6b7fa..d1f7fc1dc9f8 100644
  
  	if(chip->sram_wq)
  		destroy_workqueue(chip->sram_wq);
-@@ -1298,6 +1343,7 @@ static int qcom_fg_remove(struct platform_device *pdev)
+@@ -1298,6 +1343,7 @@ static void qcom_fg_remove(struct platform_device *pdev)
  static const struct of_device_id fg_match_id_table[] = {
  	{ .compatible = "qcom,pmi8994-fg", .data = &ops_fg },
  	{ .compatible = "qcom,pmi8998-fg", .data = &ops_fg_gen3 },
