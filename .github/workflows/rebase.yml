@@ -68,7 +68,7 @@ jobs:
         run: |
           cd srcdir
           # Update version numbers in nabu-kernel_build.sh and PKGBUILD
-          sed -i 's/^KERNEL_BRANCH=.*/KERNEL_BRANCH='$NEW_REF'/' nabu-kernel_build.sh
+          sed -i 's/^KERNEL_BRANCH=.*/KERNEL_BRANCH="'"$NEW_REF"'"/' nabu-kernel_build.sh
           # Commit & push changes
           git diff --name-only --diff-filter=D | xargs git add
           git add kernel-files/config kernel-files/*.patch nabu-kernel_build.sh

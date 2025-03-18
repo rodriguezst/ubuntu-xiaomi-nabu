@@ -19,6 +19,6 @@ git format-patch $REF --start-number=1 -o ../kernel-files -- . ':!arch/*/configs
 KERNVER=$(grep -E '^VERSION|^PATCHLEVEL|^SUBLEVEL' Makefile | \
     sed -E 's/[^0-9]*//g' | tr '\n' '.' | sed 's/\.$//' )
 NEW_REF=v${KERNVER%.0}
-sed -i 's/^KERNEL_BRANCH=.*/KERNEL_BRANCH='$NEW_REF'/' ../nabu-kernel_build.sh
+sed -i 's/^KERNEL_BRANCH=.*/KERNEL_BRANCH="'"$NEW_REF"'"/' ../nabu-kernel_build.sh
 cd ..
 rm -rf linux
