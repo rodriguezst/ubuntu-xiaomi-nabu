@@ -1,7 +1,7 @@
-From 7f93c3a0e8393034eab588ebd108cbdec12fe2fe Mon Sep 17 00:00:00 2001
+From 113a7b0fe4d6005a52dfd4b205c9280985bc9087 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Tue, 9 Jan 2024 16:36:30 +0000
-Subject: [PATCH 33/58] NABU: Enable secondary usb and keyboard MCU.
+Subject: [PATCH 33/55] NABU: Enable secondary usb and keyboard MCU.
 
 ---
  .../boot/dts/qcom/sm8150-xiaomi-nabu.dts      | 76 +++++++++++++++++++
@@ -102,5 +102,5 @@ index 8ad0e42cea72..c125e6575e9e 100644
  	reset-gpios = <&tlmm 143 GPIO_ACTIVE_HIGH>;
  	vdd-buck-sido-supply = <&vreg_s4a_1p8>;
 -- 
-2.34.1
+2.48.1
 

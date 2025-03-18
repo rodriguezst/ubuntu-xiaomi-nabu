@@ -1,7 +1,7 @@
-From ce44d4a999415644f589a4b63c4c88c70fdc214c Mon Sep 17 00:00:00 2001
+From a30df10fa7a4ab4ad5b018885203bf0eac1ac147 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Tue, 28 Nov 2023 15:28:53 +0300
-Subject: [PATCH 28/58] input: nt36xxx: Enable pen support
+Subject: [PATCH 28/55] input: nt36xxx: Enable pen support
 
 ---
  drivers/input/touchscreen/nt36523/nt36xxx.c   | 47 +++++++++++++++++--
@@ -10,7 +10,7 @@ Subject: [PATCH 28/58] input: nt36xxx: Enable pen support
  3 files changed, 45 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.c b/drivers/input/touchscreen/nt36523/nt36xxx.c
-index 308cf3f2eade..5a161598d7a1 100644
+index 63c584f681d7..3a87a38a7780 100644
 --- a/drivers/input/touchscreen/nt36523/nt36xxx.c
 +++ b/drivers/input/touchscreen/nt36523/nt36xxx.c
 @@ -1173,6 +1173,43 @@ static int8_t nvt_ts_check_chip_ver_trim(uint32_t chip_ver_trim_addr)
@@ -114,5 +114,5 @@ index 4f383dac2c3c..71c271d8c548 100644
  	mutex_unlock(&ts->lock);
  }
 -- 
-2.34.1
+2.48.1
 

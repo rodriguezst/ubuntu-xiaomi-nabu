@@ -1,7 +1,7 @@
-From 39f4a3ee3849d3b6c519d4c6b640c1fb2c55dd3f Mon Sep 17 00:00:00 2001
+From 002251734b8c42a2907b060fbc40bcdcf17002a9 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 20 Mar 2024 14:19:19 +0000
-Subject: [PATCH 39/58] NABU: Remove framebuffer initialized by XBL
+Subject: [PATCH 39/55] NABU: Remove framebuffer initialized by XBL
  https://gitlab.com/sm8250-mainline/linux/-/commit/63d0b62efcabccfa063c1774b2bdb3aa8631e013
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 39/58] NABU: Remove framebuffer initialized by XBL
  1 file changed, 20 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts b/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
-index 6d98abe09be6..08e59997372e 100644
+index 0b5d92209369..b1dc96081454 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
 +++ b/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
 @@ -43,21 +43,6 @@ aliases {
@@ -47,5 +47,5 @@ index 6d98abe09be6..08e59997372e 100644
  			reg = <0x0 0xa4c00000 0x0 0x3c00000>;
  			no-map;
 -- 
-2.34.1
+2.48.1
 

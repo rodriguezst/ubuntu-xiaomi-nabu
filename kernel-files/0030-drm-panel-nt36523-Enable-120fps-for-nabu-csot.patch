@@ -1,7 +1,7 @@
-From 3dbb1facf28ffa1fa9ed11bd18167618cf7dbfb4 Mon Sep 17 00:00:00 2001
+From 976039e228451d31fae4ca2d853f0bef3de9f3b0 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Thu, 4 Jan 2024 13:01:31 +0000
-Subject: [PATCH 30/58] drm/panel: nt36523: Enable 120fps for nabu csot
+Subject: [PATCH 30/55] drm/panel: nt36523: Enable 120fps for nabu csot
 
 ---
  drivers/gpu/drm/panel/panel-novatek-nt36523.c | 3 +--
@@ -22,5 +22,5 @@ index 9149751845cb..744dffbc4070 100644
  		.hsync_start = 1600 + 88,
  		.hsync_end = 1600 + 88 + 40,
 -- 
-2.34.1
+2.48.1
 

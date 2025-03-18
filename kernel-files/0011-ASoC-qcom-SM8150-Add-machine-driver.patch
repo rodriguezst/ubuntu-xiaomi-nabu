@@ -1,7 +1,7 @@
-From b2a866cbd2b111d39ef46ab0e15d11dd3530d114 Mon Sep 17 00:00:00 2001
+From b07ce37ea514b65ef50a8aa2c51b5bb0e01b13a0 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Fri, 28 Jul 2023 00:37:39 +0300
-Subject: [PATCH 11/58] ASoC: qcom: SM8150: Add machine driver
+Subject: [PATCH 11/55] ASoC: qcom: SM8150: Add machine driver
 
 ---
  sound/soc/qcom/Kconfig  |  12 ++
@@ -308,5 +308,5 @@ index 000000000000..443d684e8618
 +MODULE_LICENSE("GPL v2");
 \ No newline at end of file
 -- 
-2.34.1
+2.48.1
 

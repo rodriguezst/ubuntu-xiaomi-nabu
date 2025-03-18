@@ -1,7 +1,7 @@
-From 0a92f4bb562abb0e6c123ba4f2256cb6a490719a Mon Sep 17 00:00:00 2001
+From 0f589393d7134f0b462cddc6200b111f2ed62a4b Mon Sep 17 00:00:00 2001
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Date: Sun, 14 Mar 2021 05:03:35 +0300
-Subject: [PATCH 26/58] drm/msm/dpu1: dpu_encoder_phys_*: proper support for
+Subject: [PATCH 26/55] drm/msm/dpu1: dpu_encoder_phys_*: proper support for
  active CTLs
 
 Adapt dpu_encoder_phys_* to properly support active CTLs and their
@@ -52,5 +52,5 @@ index abd6600046cb..8a618841e3ea 100644
  
  static void dpu_encoder_phys_vid_atomic_mode_set(
 -- 
-2.34.1
+2.48.1
 

@@ -1,7 +1,7 @@
-From 08e703027db73f455180ffbe91f894196a20f93a Mon Sep 17 00:00:00 2001
+From 3ddb1620914f8c6889fccf75705f8d5d2b7505fa Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Sun, 23 Jul 2023 17:32:10 +0300
-Subject: [PATCH 06/58] nt36xxx: Fix module autoload
+Subject: [PATCH 06/55] nt36xxx: Fix module autoload
 
 ---
  drivers/input/touchscreen/nt36523/nt36xxx.c | 2 ++
@@ -9,7 +9,7 @@ Subject: [PATCH 06/58] nt36xxx: Fix module autoload
  2 files changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.c b/drivers/input/touchscreen/nt36523/nt36xxx.c
-index 45500ad5cd91..308cf3f2eade 100644
+index 69d79a871546..63c584f681d7 100644
 --- a/drivers/input/touchscreen/nt36523/nt36xxx.c
 +++ b/drivers/input/touchscreen/nt36523/nt36xxx.c
 @@ -1877,12 +1877,14 @@ static const struct spi_device_id nvt_ts_id[] = {
@@ -41,5 +41,5 @@ index 2ec9ccb3b522..8f6efc1d8735 100644
  #if NVT_DEBUG
  #define NVT_LOG(fmt, args...)    pr_err("[%s] %s %d: " fmt, NVT_SPI_NAME, __func__, __LINE__, ##args)
 -- 
-2.34.1
+2.48.1
 

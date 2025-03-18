@@ -1,7 +1,7 @@
-From 8581236ffb0b2e80ef622838dabdd2dcc24cc751 Mon Sep 17 00:00:00 2001
+From 78946639030e69e7867709bc01b98930668caf56 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 2 Aug 2023 19:15:53 +0300
-Subject: [PATCH 14/58] power: qcom_fg: Add initial pm8150b support
+Subject: [PATCH 14/55] power: qcom_fg: Add initial pm8150b support
 
 power: qcom_fg: Fix memif address for pm8150b
 
@@ -13,7 +13,7 @@ power: qcom_fg: Add support for temperature data on gen4 fg
  1 file changed, 81 insertions(+), 35 deletions(-)
 
 diff --git a/drivers/power/supply/qcom_fg.c b/drivers/power/supply/qcom_fg.c
-index da4164f6b7fa..d1f7fc1dc9f8 100644
+index 4af6c71370ff..2d6ad9f9718d 100644
 --- a/drivers/power/supply/qcom_fg.c
 +++ b/drivers/power/supply/qcom_fg.c
 @@ -27,20 +27,23 @@
@@ -318,5 +318,5 @@ index da4164f6b7fa..d1f7fc1dc9f8 100644
  };
  MODULE_DEVICE_TABLE(of, fg_match_id_table);
 -- 
-2.34.1
+2.48.1
 

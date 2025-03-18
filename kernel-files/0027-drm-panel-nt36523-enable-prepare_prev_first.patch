@@ -1,7 +1,7 @@
-From 2b314a1c13c6f18d63c5d9d7e1e8b6a580309e08 Mon Sep 17 00:00:00 2001
+From 7cbdce9aac7de7058659fcafb1e981be9e5880f3 Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Thu, 31 Aug 2023 21:18:48 +0800
-Subject: [PATCH 27/58] drm/panel: nt36523: enable prepare_prev_first
+Subject: [PATCH 27/55] drm/panel: nt36523: enable prepare_prev_first
 
 Signed-off-by: map220v <map220v300@gmail.com>
 ---
@@ -21,5 +21,5 @@ index 7bcd58900792..9149751845cb 100644
  
  	ret = of_drm_get_panel_orientation(dev->of_node, &pinfo->orientation);
 -- 
-2.34.1
+2.48.1
 

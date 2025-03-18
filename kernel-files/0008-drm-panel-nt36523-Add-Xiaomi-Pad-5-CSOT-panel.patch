@@ -1,7 +1,7 @@
-From 217d4b9f5adbc192ee5097fda1fe25c32a0e3702 Mon Sep 17 00:00:00 2001
+From 3d5afd0809aad2cf5e043762a3540de6774572c8 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Thu, 20 Jul 2023 16:18:32 +0300
-Subject: [PATCH 08/58] drm/panel: nt36523: Add Xiaomi Pad 5 CSOT panel
+Subject: [PATCH 08/55] drm/panel: nt36523: Add Xiaomi Pad 5 CSOT panel
 
 ---
  .../display/panel/novatek,nt36523.yaml        |   1 +
@@ -288,5 +288,5 @@ index 04f1d2676c78..7bcd58900792 100644
  };
  MODULE_DEVICE_TABLE(of, nt36523_of_match);
 -- 
-2.34.1
+2.48.1
 

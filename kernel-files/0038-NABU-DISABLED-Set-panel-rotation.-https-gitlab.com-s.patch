@@ -1,7 +1,7 @@
-From 86abedbd21b995d3e612bad946579de6cbc7bdcb Mon Sep 17 00:00:00 2001
+From 50f7d82d4aa9ccee407de0a32365d36b6245f6cf Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 20 Mar 2024 14:18:12 +0000
-Subject: [PATCH 38/58] NABU: [DISABLED] Set panel rotation.
+Subject: [PATCH 38/55] NABU: [DISABLED] Set panel rotation.
  https://gitlab.com/sm8250-mainline/linux/-/commit/0c5a27875882447139700b93f3a20a94a411d260
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 38/58] NABU: [DISABLED] Set panel rotation.
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts b/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
-index 3f39e0b3e261..6d98abe09be6 100644
+index 3f39e0b3e261..0b5d92209369 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
 +++ b/arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
 @@ -634,6 +634,7 @@ display_panel: panel@0 {
@@ -21,5 +21,5 @@ index 3f39e0b3e261..6d98abe09be6 100644
  		ports {
  			#address-cells = <1>;
 -- 
-2.34.1
+2.48.1
 

@@ -1,7 +1,7 @@
-From 0d00c4a35f02cf282d3b3eda68bf52e625161bc0 Mon Sep 17 00:00:00 2001
+From 9fe4db04c3ca86710eb5e083a79e51f7fa6279f3 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Fri, 4 Aug 2023 01:37:44 +0300
-Subject: [PATCH 57/58] arch: arm64: boot: dts: qcom: sm8150 add ufs dependecy
+Subject: [PATCH 54/55] arch: arm64: boot: dts: qcom: sm8150 add ufs dependecy
  on phy clock
 
 ---
@@ -22,5 +22,5 @@ index 1ac0c9c34140..ad9c15d9dada 100644
  
  			clock-names =
 -- 
-2.34.1
+2.48.1
 

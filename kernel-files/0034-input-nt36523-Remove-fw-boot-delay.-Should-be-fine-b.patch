@@ -1,7 +1,7 @@
-From 96787e2ff24537a9b7429d8b9a26eadb504d407b Mon Sep 17 00:00:00 2001
+From 380fbe46e0ab247d8a3d54eddf07cc7ac56a6f8f Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 10 Jan 2024 14:59:58 +0000
-Subject: [PATCH 34/58] input: nt36523: Remove fw boot delay. Should be fine,
+Subject: [PATCH 34/55] input: nt36523: Remove fw boot delay. Should be fine,
  because we load touchscreen as a module and panel module is built-in, so
  there is enough time for panel driver to send commands.
 
@@ -12,7 +12,7 @@ Subject: [PATCH 34/58] input: nt36523: Remove fw boot delay. Should be fine,
  3 files changed, 7 insertions(+), 60 deletions(-)
 
 diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.c b/drivers/input/touchscreen/nt36523/nt36xxx.c
-index 5a161598d7a1..f8f8c3e19b34 100644
+index 3a87a38a7780..108f84d0e040 100644
 --- a/drivers/input/touchscreen/nt36523/nt36xxx.c
 +++ b/drivers/input/touchscreen/nt36523/nt36xxx.c
 @@ -47,11 +47,6 @@ uint8_t esd_retry = 0;
@@ -164,5 +164,5 @@ index 71c271d8c548..f5da9275542d 100644
 -}
  #endif /* BOOT_UPDATE_FIRMWARE */
 -- 
-2.34.1
+2.48.1
 

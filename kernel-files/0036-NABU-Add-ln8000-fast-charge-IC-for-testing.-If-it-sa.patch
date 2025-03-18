@@ -1,7 +1,7 @@
-From 9081fa4bafa20892ca285ebda21eead0aa037171 Mon Sep 17 00:00:00 2001
+From e6680112fd6cf78f905eda76a82e0cc9ea27050b Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Thu, 11 Jan 2024 19:19:35 +0000
-Subject: [PATCH 36/58] NABU: Add ln8000 fast charge IC for testing. If it says
+Subject: [PATCH 36/55] NABU: Add ln8000 fast charge IC for testing. If it says
  op_mode = 3 without falling back to 1, then fast charging works. Tested with:
  Samsung PD charger (Type-C to Type-C) - works! Xiaomi QC3 charger (USB A to
  Type-C) - doesn't pass volt_qual (maybe PD negotiation selected wrong
@@ -1847,5 +1847,5 @@ index 000000000000..f4c386bf2a9f
 +MODULE_VERSION("0.3.0");
 \ No newline at end of file
 -- 
-2.34.1
+2.48.1
 
