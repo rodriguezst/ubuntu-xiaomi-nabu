@@ -10,7 +10,7 @@ BUILD_DIR="linux"
 DTB_PATH="qcom/sm8150-xiaomi-nabu.dtb"
 DEBIAN_PACKAGES=(
     "linux-xiaomi-nabu"
-    "firmware-xiaomi-nabu"
+    "firmware-loader-xiaomi-nabu"
     "alsa-xiaomi-nabu"
 )
 

@@ -1,0 +1,8 @@
+Package: firmware-loader-xiaomi-nabu
+Version: 1.0
+Architecture: arm64
+Maintainer: rodriguezst <2828844+rodriguezst@users.noreply.github.com>
+Recommends: make-dynpart-mappings
+Conflicts: firmware-xiaomi-nabu
+Replaces: firmware-xiaomi-nabu
+Description: msm-firmware-loader ported from PmOS

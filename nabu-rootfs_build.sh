@@ -109,7 +109,7 @@ chroot "$ROOTDIR" apt install -y \
 
 # Install device-specific packages
 echo "Installing device-specific packages..."
-chroot "$ROOTDIR" apt install -y rmtfs protection-domain-mapper tqftpserv
+chroot "$ROOTDIR" apt install -y rmtfs protection-domain-mapper tqftpserv make-dynpart-mappings
 
 # Configure systemd service
 sed -i '/ConditionKernelVersion/d' "$ROOTDIR/lib/systemd/system/pd-mapper.service"
@@ -117,7 +117,7 @@ sed -i '/ConditionKernelVersion/d' "$ROOTDIR/lib/systemd/system/pd-mapper.servic
 # Install device-specific packages
 echo "Installing device packages..."
 cp "xiaomi-nabu-debs"/*-xiaomi-nabu.deb "$ROOTDIR/tmp/"
-for pkg in linux firmware alsa; do
+for pkg in linux firmware-loader alsa; do
     chroot "$ROOTDIR" dpkg -i "/tmp/$pkg-xiaomi-nabu.deb"
 done
 rm "$ROOTDIR/tmp"/*-xiaomi-nabu.deb

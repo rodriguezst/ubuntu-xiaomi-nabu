@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+    # Enable systemd services
+    systemctl enable msm-firmware-loader.service
+    systemctl enable msm-firmware-loader-unpack.service
+fi
+
+#DEBHELPER#
+
+exit 0
