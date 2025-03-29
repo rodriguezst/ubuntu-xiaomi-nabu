@@ -1,4 +1,4 @@
-From c86990c63747579d96dfb54053c223b86d9c9a4a Mon Sep 17 00:00:00 2001
+From ab2c01c40f64a3916a86f19784419e59fe7aee65 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Thu, 20 Jul 2023 17:54:24 +0300
 Subject: [PATCH 09/55] NABU: Enable gpu, dsi0 and dsi1. Added panel and

@@ -1,4 +1,4 @@
-From a960ebd1fbd4d93f6c4586354c0d34404c2fa50c Mon Sep 17 00:00:00 2001
+From 5184bf388040332ec4256ab13e912516435a2f02 Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Sat, 23 Nov 2024 21:56:39 +0000
 Subject: [PATCH 48/55] NABU: enable rtc

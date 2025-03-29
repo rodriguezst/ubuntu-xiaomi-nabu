@@ -1,4 +1,4 @@
-From 002251734b8c42a2907b060fbc40bcdcf17002a9 Mon Sep 17 00:00:00 2001
+From 5d80e0e502388a95115fe06910bff23f519fa917 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 20 Mar 2024 14:19:19 +0000
 Subject: [PATCH 39/55] NABU: Remove framebuffer initialized by XBL

@@ -1,4 +1,4 @@
-From a30df10fa7a4ab4ad5b018885203bf0eac1ac147 Mon Sep 17 00:00:00 2001
+From 27e0652c50c83a71b3d239506d86ccbf931b8a91 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Tue, 28 Nov 2023 15:28:53 +0300
 Subject: [PATCH 28/55] input: nt36xxx: Enable pen support

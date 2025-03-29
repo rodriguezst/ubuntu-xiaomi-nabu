@@ -1,4 +1,4 @@
-From 05c94340c7a0677c88ff6999f5d5a8872ffbabb1 Mon Sep 17 00:00:00 2001
+From 9237323ad359c51e2d90227fc932ea6c728a6170 Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Mon, 17 Oct 2022 08:02:58 +0800
 Subject: [PATCH 04/55] drm: dsi: emit panel turn on/off signal to touchscreen

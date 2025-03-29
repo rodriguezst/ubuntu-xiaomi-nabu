@@ -1,4 +1,4 @@
-From 7cbdce9aac7de7058659fcafb1e981be9e5880f3 Mon Sep 17 00:00:00 2001
+From 2fcddc07017c0af733978d30fdc742cacdc84280 Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Thu, 31 Aug 2023 21:18:48 +0800
 Subject: [PATCH 27/55] drm/panel: nt36523: enable prepare_prev_first

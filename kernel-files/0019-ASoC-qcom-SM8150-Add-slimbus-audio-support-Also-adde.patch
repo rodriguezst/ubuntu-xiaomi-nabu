@@ -1,4 +1,4 @@
-From 2134954a38d86ca6db5fc253f1abde3092339bb4 Mon Sep 17 00:00:00 2001
+From 86099d0ab40a447b7ab84550f33b120b8abc66cb Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Fri, 4 Aug 2023 01:37:44 +0300
 Subject: [PATCH 19/55] ASoC: qcom: SM8150: Add slimbus audio support Also

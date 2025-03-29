@@ -1,4 +1,4 @@
-From addbcfe1a10a53f8835fc07ec2502257b25825a4 Mon Sep 17 00:00:00 2001
+From 259e1f6e94cf181d64a985e461fe9fbaf7371e66 Mon Sep 17 00:00:00 2001
 From: Nicola Guerrera <guerrera.nicola@gmail.com>
 Date: Sat, 11 Jan 2025 23:55:24 +0100
 Subject: [PATCH 55/55] arch: arm64: boot: dts: qcom: sm8150 disable broken
