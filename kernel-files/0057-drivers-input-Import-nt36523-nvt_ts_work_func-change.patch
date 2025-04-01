@@ -1,0 +1,31 @@
+From 579b4b8ebab560c97bfe310933242d897c3cf95c Mon Sep 17 00:00:00 2001
+From: stic-server-open <1138705738@qq.com>
+Date: Mon, 14 Oct 2024 20:59:10 +0800
+Subject: [PATCH] drivers: input: Import nt36523 nvt_ts_work_func changes from
+ pipa-t-oss
+
+---
+ drivers/input/touchscreen/nt36523/nt36xxx.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.c b/drivers/input/touchscreen/nt36523/nt36xxx.c
+index 45649f338975..aea433553b48 100644
+--- a/drivers/input/touchscreen/nt36523/nt36xxx.c
++++ b/drivers/input/touchscreen/nt36523/nt36xxx.c
+@@ -953,6 +953,13 @@ static irqreturn_t nvt_ts_work_func(int irq, void *data)
+ 	uint32_t pen_btn2 = 0;
+ 	uint32_t pen_battery = 0;
+ 
++	static struct task_struct *touch_task = NULL;
++
++	if (touch_task == NULL) {
++		touch_task = current;
++		sched_set_fifo(touch_task);
++	}
++
+ 	mutex_lock(&ts->lock);
+ 
+ 	if (ts->dev_pm_suspend) {
+-- 
+2.34.1
+
