@@ -1,7 +1,7 @@
-From bd497f28afe465c1cad8406fbdd23387ac81e163 Mon Sep 17 00:00:00 2001
+From 8b3d0f83c0aee9043bb040df38f61cb1d31d2ff9 Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Tue, 19 Nov 2024 09:48:28 +0000
-Subject: [PATCH 47/55] arch: arm64: boot: dts: qcom: sm8150.dtsi: change reset
+Subject: [PATCH 47/56] arch: arm64: boot: dts: qcom: sm8150.dtsi: change reset
  name and freq-table-hz of ufs_mem_hc
 
 This is needed in some nabu tablets to fix UFS

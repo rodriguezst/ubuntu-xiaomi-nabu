@@ -1,7 +1,7 @@
-From a365ddd0317f57805d87c1cc44b1ec34e0dae945 Mon Sep 17 00:00:00 2001
+From 8ac4d1e4a1000f914b5531731a7344ba9ad318dc Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 10 Jan 2024 19:41:45 +0000
-Subject: [PATCH 35/55] NABU: Add flash led node.
+Subject: [PATCH 35/56] NABU: Add flash led node.
 
 ---
  arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts | 14 ++++++++++++++

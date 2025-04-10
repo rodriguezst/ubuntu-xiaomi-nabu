@@ -1,8 +1,8 @@
-From defb39db31e6e2de8d7319c77ad697f9581070bd Mon Sep 17 00:00:00 2001
+From 394c23ce618a550e9b2a456b9ddaab4e5c05a4d5 Mon Sep 17 00:00:00 2001
 From: tx0 <me@tx0.su>
 Date: Sat, 29 Mar 2025 16:33:10 +0500
-Subject: [PATCH] nt36xxx: Change pen resolution  This is done to be able to
- use newer firmware with pen fixes
+Subject: [PATCH 56/56] nt36xxx: Change pen resolution This is done to be able
+ to use newer firmware with pen fixes
  https://github.com/dev-harsh1998/android_kernel_xiaomi_nabu/tree/lineage-22.1/firmware
 
 ---
@@ -10,7 +10,7 @@ Subject: [PATCH] nt36xxx: Change pen resolution  This is done to be able to
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/input/touchscreen/nt36523/nt36xxx.c b/drivers/input/touchscreen/nt36523/nt36xxx.c
-index 9f0c58083d25f..46cc0dd60c88b 100644
+index 9f0c58083d25..46cc0dd60c88 100644
 --- a/drivers/input/touchscreen/nt36523/nt36xxx.c
 +++ b/drivers/input/touchscreen/nt36523/nt36xxx.c
 @@ -1105,10 +1105,10 @@ static irqreturn_t nvt_ts_work_func(int irq, void *data)
@@ -38,5 +38,5 @@ index 9f0c58083d25f..46cc0dd60c88b 100644
  			x_max = ts->abs_x_max - 1;
  			y_max = ts->abs_y_max - 1;
 -- 
-GitLab
+2.48.1
 

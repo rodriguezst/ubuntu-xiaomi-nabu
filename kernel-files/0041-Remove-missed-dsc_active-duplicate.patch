@@ -1,7 +1,7 @@
-From acc18059de6b69ec6ad0a3c8de99b5d68cffda8e Mon Sep 17 00:00:00 2001
+From 8b30b3064e0a55fb69a5b61ed77c9fd1b704ddb0 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Sun, 15 Sep 2024 16:15:48 +0000
-Subject: [PATCH 41/55] Remove missed dsc_active duplicate
+Subject: [PATCH 41/56] Remove missed dsc_active duplicate
 
 ---
  drivers/gpu/drm/msm/disp/dpu1/dpu_hw_ctl.c | 1 -

@@ -1,7 +1,7 @@
-From 5184bf388040332ec4256ab13e912516435a2f02 Mon Sep 17 00:00:00 2001
+From 306015254a2efff3091f0b05ea445b508faaf995 Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Sat, 23 Nov 2024 21:56:39 +0000
-Subject: [PATCH 48/55] NABU: enable rtc
+Subject: [PATCH 48/56] NABU: enable rtc
 
 ---
  arch/arm64/boot/dts/qcom/pm8150.dtsi            | 10 +++++++++-

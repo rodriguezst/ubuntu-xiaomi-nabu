@@ -1,7 +1,7 @@
-From 9237323ad359c51e2d90227fc932ea6c728a6170 Mon Sep 17 00:00:00 2001
+From 02d7735c8636628d34f464207e0072fb3386a3e1 Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Mon, 17 Oct 2022 08:02:58 +0800
-Subject: [PATCH 04/55] drm: dsi: emit panel turn on/off signal to touchscreen
+Subject: [PATCH 04/56] drm: dsi: emit panel turn on/off signal to touchscreen
 
 Signed-off-by: map220v <map220v300@gmail.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: map220v <map220v300@gmail.com>
  1 file changed, 9 insertions(+)
 
 diff --git a/drivers/gpu/drm/msm/dsi/dsi_manager.c b/drivers/gpu/drm/msm/dsi/dsi_manager.c
-index a210b7c9e5ca..0be943c8cc45 100644
+index 4fabb01345aa..6eb25ea99f2f 100644
 --- a/drivers/gpu/drm/msm/dsi/dsi_manager.c
 +++ b/drivers/gpu/drm/msm/dsi/dsi_manager.c
 @@ -7,6 +7,7 @@
@@ -20,7 +20,7 @@ index a210b7c9e5ca..0be943c8cc45 100644
  
  #define DSI_CLOCK_MASTER	DSI_0
  #define DSI_CLOCK_SLAVE		DSI_1
-@@ -273,6 +274,7 @@ static void dsi_mgr_bridge_pre_enable(struct drm_bridge *bridge)
+@@ -283,6 +284,7 @@ static void dsi_mgr_bridge_pre_enable(struct drm_bridge *bridge)
  	struct mipi_dsi_host *host = msm_dsi->host;
  	bool is_bonded_dsi = IS_BONDED_DSI();
  	int ret;
@@ -28,7 +28,7 @@ index a210b7c9e5ca..0be943c8cc45 100644
  
  	DBG("id=%d", id);
  
-@@ -286,6 +288,9 @@ static void dsi_mgr_bridge_pre_enable(struct drm_bridge *bridge)
+@@ -296,6 +298,9 @@ static void dsi_mgr_bridge_pre_enable(struct drm_bridge *bridge)
  		return;
  	}
  
@@ -38,7 +38,7 @@ index a210b7c9e5ca..0be943c8cc45 100644
  	ret = msm_dsi_host_enable(host);
  	if (ret) {
  		pr_err("%s: enable host %d failed, %d\n", __func__, id, ret);
-@@ -329,9 +334,13 @@ static void dsi_mgr_bridge_post_disable(struct drm_bridge *bridge)
+@@ -339,9 +344,13 @@ static void dsi_mgr_bridge_post_disable(struct drm_bridge *bridge)
  	struct mipi_dsi_host *host = msm_dsi->host;
  	bool is_bonded_dsi = IS_BONDED_DSI();
  	int ret;

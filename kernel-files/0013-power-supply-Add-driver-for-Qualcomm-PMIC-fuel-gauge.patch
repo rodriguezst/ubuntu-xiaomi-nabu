@@ -1,7 +1,7 @@
-From 2d94373d612c0541390a6a3bcfc9e0d4ba6eb780 Mon Sep 17 00:00:00 2001
+From db5a8b8541b6af1d8bc538ba55e8e24506877823 Mon Sep 17 00:00:00 2001
 From: Joel Selvaraj <jo@jsfamily.in>
 Date: Wed, 3 Feb 2021 19:54:45 +0000
-Subject: [PATCH 13/55] power: supply: Add driver for Qualcomm PMIC fuel gauge
+Subject: [PATCH 13/56] power: supply: Add driver for Qualcomm PMIC fuel gauge
 
 Ths driver supports the fuel gauge hardware available on PMICs such as PMI8994,
 as well as gen 3 fuel gauge hardware available on PMI8998.

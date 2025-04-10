@@ -1,7 +1,7 @@
-From 259e1f6e94cf181d64a985e461fe9fbaf7371e66 Mon Sep 17 00:00:00 2001
+From b59a5b68b69dd36eab113752591dc1295011a420 Mon Sep 17 00:00:00 2001
 From: Nicola Guerrera <guerrera.nicola@gmail.com>
 Date: Sat, 11 Jan 2025 23:55:24 +0100
-Subject: [PATCH 55/55] arch: arm64: boot: dts: qcom: sm8150 disable broken
+Subject: [PATCH 55/56] arch: arm64: boot: dts: qcom: sm8150 disable broken
  crypto engine
 
 ---

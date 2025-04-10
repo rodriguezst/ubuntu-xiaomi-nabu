@@ -1,7 +1,7 @@
-From 2fcddc07017c0af733978d30fdc742cacdc84280 Mon Sep 17 00:00:00 2001
+From b15d17be254c2077b41e004520081460de692e6d Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Thu, 31 Aug 2023 21:18:48 +0800
-Subject: [PATCH 27/55] drm/panel: nt36523: enable prepare_prev_first
+Subject: [PATCH 27/56] drm/panel: nt36523: enable prepare_prev_first
 
 Signed-off-by: map220v <map220v300@gmail.com>
 ---

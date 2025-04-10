@@ -1,7 +1,7 @@
-From df15df946483fa2b2de9febbecfb9ad87621a406 Mon Sep 17 00:00:00 2001
+From 8da5cf430b54ef9d63b2a79517d4cdd7154e3fe1 Mon Sep 17 00:00:00 2001
 From: Pan Ortiz <panjeoc@proton.me>
 Date: Tue, 12 Nov 2024 02:53:14 +0000
-Subject: [PATCH 45/55] arch: arm64: boot: dts: qcom: sm8150-xiaomi-nabu.dts:
+Subject: [PATCH 45/56] arch: arm64: boot: dts: qcom: sm8150-xiaomi-nabu.dts:
  add address to bluetooth node Bluetooth doesn't have the mac adress specified
  in eeprom, adding this is needed to get the bluetooth working
 

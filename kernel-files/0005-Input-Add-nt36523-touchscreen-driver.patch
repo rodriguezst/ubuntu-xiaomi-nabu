@@ -1,7 +1,7 @@
-From a08d05c5d42f2f94579128622ff7617f96881a20 Mon Sep 17 00:00:00 2001
+From c3515642bdda590ad76d139d86b1d2f43d1d764e Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Thu, 4 Aug 2022 13:26:26 +0800
-Subject: [PATCH 05/55] Input: Add nt36523 touchscreen driver
+Subject: [PATCH 05/56] Input: Add nt36523 touchscreen driver
 
 Signed-off-by: map220v <map220v300@gmail.com>
 ---
