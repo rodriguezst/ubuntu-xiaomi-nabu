@@ -1,4 +1,4 @@
-From 6e7a5f76c1e13fcb9d4541ded41261cce6e2b34c Mon Sep 17 00:00:00 2001
+From 47c556ac689d4bd0ae218cb4ea52cf2725fa9e89 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Wed, 10 Jan 2024 14:59:58 +0000
 Subject: [PATCH 34/56] input: nt36523: Remove fw boot delay. Should be fine,

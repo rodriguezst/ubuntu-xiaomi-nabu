@@ -1,4 +1,4 @@
-From 77e6045c14b275ff7a684bbaf81ba437a0a2c205 Mon Sep 17 00:00:00 2001
+From 5724895c1c4a2dc29f3a8665ca2944dd9a067d37 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Fri, 4 Aug 2023 01:34:06 +0300
 Subject: [PATCH 17/56] SM8150: Add slimbus nodes
@@ -8,10 +8,10 @@ Subject: [PATCH 17/56] SM8150: Add slimbus nodes
  1 file changed, 26 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index fcf4395383ac..81df34375da7 100644
+index e8cd98495e1e..63b4dc973497 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-@@ -4319,6 +4319,32 @@ apps_smmu: iommu@15000000 {
+@@ -4323,6 +4323,32 @@ apps_smmu: iommu@15000000 {
  			dma-coherent;
  		};
  

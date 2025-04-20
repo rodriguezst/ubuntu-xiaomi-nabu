@@ -1,4 +1,4 @@
-From e23ccd73a67f1c2ffd66a7e303f1d0be0c03ef6a Mon Sep 17 00:00:00 2001
+From ae1538b16c831ae00d8dd278fb38427edea7c650 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Mon, 8 Jan 2024 21:18:15 +0000
 Subject: [PATCH 20/56] ASoC: qcom: sm8150: Fix compilation in v6.7.0

@@ -1,4 +1,4 @@
-From 0932ef33805e6b9d01fa50e62b31e608c977260a Mon Sep 17 00:00:00 2001
+From 7e1bb45083c6e9f62756244ad224a3e2bc889bed Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Mon, 24 Jul 2023 13:19:21 +0300
 Subject: [PATCH 10/56] SM8150: Add apr nodes
@@ -8,7 +8,7 @@ Subject: [PATCH 10/56] SM8150: Add apr nodes
  1 file changed, 55 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index 4c5d05075046..fcf4395383ac 100644
+index 4d06ac3139e7..e8cd98495e1e 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
 @@ -9,7 +9,9 @@
@@ -21,7 +21,7 @@ index 4c5d05075046..fcf4395383ac 100644
  #include <dt-bindings/clock/qcom,rpmh.h>
  #include <dt-bindings/clock/qcom,dispcc-sm8150.h>
  #include <dt-bindings/clock/qcom,gcc-sm8150.h>
-@@ -4349,6 +4351,56 @@ glink-edge {
+@@ -4353,6 +4355,56 @@ glink-edge {
  				qcom,remote-pid = <2>;
  				mboxes = <&apss_shared 8>;
  
@@ -78,7 +78,7 @@ index 4c5d05075046..fcf4395383ac 100644
  				fastrpc {
  					compatible = "qcom,fastrpc";
  					qcom,glink-channels = "fastrpcglink-apps-dsp";
-@@ -4616,6 +4668,9 @@ wifi: wifi@18800000 {
+@@ -4620,6 +4672,9 @@ wifi: wifi@18800000 {
  		};
  	};
  

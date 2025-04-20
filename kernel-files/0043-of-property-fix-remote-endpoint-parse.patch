@@ -1,4 +1,4 @@
-From 658e2ff155bae3e23001cbcdf1f6bfe06c779ce9 Mon Sep 17 00:00:00 2001
+From 08a5d09b8760e99f1a5d36dea7cf45c3404ee668 Mon Sep 17 00:00:00 2001
 From: Jianhua Lu <lujianhua000@gmail.com>
 Date: Wed, 3 Apr 2024 23:03:35 +0800
 Subject: [PATCH 43/56] of: property: fix remote-endpoint parse
@@ -8,10 +8,10 @@ Subject: [PATCH 43/56] of: property: fix remote-endpoint parse
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/of/property.c b/drivers/of/property.c
-index b0633f3589de..09df55c8691e 100644
+index 208d922cc24c..554b5fd4c408 100644
 --- a/drivers/of/property.c
 +++ b/drivers/of/property.c
-@@ -1420,7 +1420,7 @@ static struct device_node *parse_remote_endpoint(struct device_node *np,
+@@ -1452,7 +1452,7 @@ static struct device_node *parse_remote_endpoint(struct device_node *np,
  	if (index > 0 || strcmp(prop_name, "remote-endpoint"))
  		return NULL;
  

@@ -1,4 +1,4 @@
-From 5155a48b46972068469b2b8657e68f847d7ef63a Mon Sep 17 00:00:00 2001
+From 0a65609423d7bf88387e9bf70babd97cbdc8f85b Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Thu, 11 Jan 2024 19:19:35 +0000
 Subject: [PATCH 36/56] NABU: Add ln8000 fast charge IC for testing. If it says
@@ -54,10 +54,10 @@ index 5c0da316c732..2ab37a2ca88d 100644
  
  &i2c7 {
 diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-index 5d0aadeeadec..7de0716eb7bf 100644
+index 46e49e338304..978f8db58711 100644
 --- a/drivers/power/supply/Kconfig
 +++ b/drivers/power/supply/Kconfig
-@@ -1036,4 +1036,10 @@ config BATTERY_QCOM_FG
+@@ -1045,4 +1045,10 @@ config BATTERY_QCOM_FG
  	  adds support for battery fuel gauging and state of charge of
  	  battery connected to the fuel gauge.
  
@@ -69,10 +69,10 @@ index 5d0aadeeadec..7de0716eb7bf 100644
 +
  endif # POWER_SUPPLY
 diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-index 56b1c4dd29e1..41a3aee515ac 100644
+index 8d7f47859af2..77acd586dcaa 100644
 --- a/drivers/power/supply/Makefile
 +++ b/drivers/power/supply/Makefile
-@@ -119,3 +119,4 @@ obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
+@@ -120,3 +120,4 @@ obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
  obj-$(CONFIG_CHARGER_QCOM_SMB2)	+= qcom_pmi8998_charger.o
  obj-$(CONFIG_FUEL_GAUGE_MM8013)	+= mm8013.o
  obj-$(CONFIG_BATTERY_QCOM_FG)	+= qcom_fg.o

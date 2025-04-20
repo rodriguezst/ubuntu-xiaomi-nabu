@@ -1,4 +1,4 @@
-From 33f37849504778022e06e49484b290d1f8e6f57f Mon Sep 17 00:00:00 2001
+From d2144be0127a6730863eb1bc8e570ae23eb31fc5 Mon Sep 17 00:00:00 2001
 From: rodriguezst <2828844+rodriguezst@users.noreply.github.com>
 Date: Thu, 28 Nov 2024 21:09:26 +0100
 Subject: [PATCH 51/56] clk: qcom: gcc: change halt_check for

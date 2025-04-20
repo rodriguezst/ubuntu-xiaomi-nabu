@@ -1,4 +1,4 @@
-From 70afde69eb48039949c287dbb92d515766f00dc5 Mon Sep 17 00:00:00 2001
+From 1568e32fdbde9ba7447f6978cf10172f7b963afd Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Sat, 13 Aug 2022 15:50:40 +0300
 Subject: [PATCH 02/56] SM8150: Add device tree for Xiaomi Pad 5
@@ -10,10 +10,10 @@ Subject: [PATCH 02/56] SM8150: Add device tree for Xiaomi Pad 5
  create mode 100644 arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dts
 
 diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 6ca8db4b8afe..56adc5dd7a56 100644
+index 140b0b2abfb5..2a9a8f57761d 100644
 --- a/arch/arm64/boot/dts/qcom/Makefile
 +++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -250,6 +250,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8150-microsoft-surface-duo.dtb
+@@ -258,6 +258,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8150-microsoft-surface-duo.dtb
  dtb-$(CONFIG_ARCH_QCOM)	+= sm8150-mtp.dtb
  dtb-$(CONFIG_ARCH_QCOM)	+= sm8150-sony-xperia-kumano-bahamut.dtb
  dtb-$(CONFIG_ARCH_QCOM)	+= sm8150-sony-xperia-kumano-griffin.dtb

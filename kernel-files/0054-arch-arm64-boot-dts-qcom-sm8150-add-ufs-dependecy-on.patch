@@ -1,4 +1,4 @@
-From 7516f29a073127d134fe86fbc31ae776d04f17c5 Mon Sep 17 00:00:00 2001
+From c8546d6e39e6e304e6ce9dc21b729e1eff9a543d Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Fri, 4 Aug 2023 01:37:44 +0300
 Subject: [PATCH 54/56] arch: arm64: boot: dts: qcom: sm8150 add ufs dependecy
@@ -9,7 +9,7 @@ Subject: [PATCH 54/56] arch: arm64: boot: dts: qcom: sm8150 add ufs dependecy
  1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index 1ac0c9c34140..ad9c15d9dada 100644
+index 5840740f33a4..ae9d1eb9662c 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
 @@ -2090,6 +2090,8 @@ ufs_mem_hc: ufshc@1d84000 {

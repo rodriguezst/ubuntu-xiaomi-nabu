@@ -1,4 +1,4 @@
-From 306015254a2efff3091f0b05ea445b508faaf995 Mon Sep 17 00:00:00 2001
+From bab94d1c27915dd29f4b3d69038309d6d760f65c Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Sat, 23 Nov 2024 21:56:39 +0000
 Subject: [PATCH 48/56] NABU: enable rtc
@@ -10,10 +10,10 @@ Subject: [PATCH 48/56] NABU: enable rtc
  3 files changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/qcom/pm8150.dtsi b/arch/arm64/boot/dts/qcom/pm8150.dtsi
-index a74a7ff660d2..51a745045eb0 100644
+index d2568686a098..c3411b308e3d 100644
 --- a/arch/arm64/boot/dts/qcom/pm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/pm8150.dtsi
-@@ -118,13 +118,21 @@ pm8150_adc_tm: adc-tm@3500 {
+@@ -116,13 +116,21 @@ pm8150_adc_tm: adc-tm@3500 {
  			status = "disabled";
  		};
  
@@ -57,7 +57,7 @@ index 5d9446b19d27..dbf673b78014 100644
 +	};
 +};
 diff --git a/drivers/rtc/rtc-pm8xxx.c b/drivers/rtc/rtc-pm8xxx.c
-index 2f32187ecc8d..5e76ae7de6c3 100644
+index b2518aea4218..3cb73941bfdc 100644
 --- a/drivers/rtc/rtc-pm8xxx.c
 +++ b/drivers/rtc/rtc-pm8xxx.c
 @@ -533,6 +533,7 @@ static int pm8xxx_rtc_probe(struct platform_device *pdev)

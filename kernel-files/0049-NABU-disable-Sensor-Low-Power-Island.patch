@@ -1,4 +1,4 @@
-From 3a6e6aaa814ca4c7a94008521bc63a5741bc90ad Mon Sep 17 00:00:00 2001
+From 1de09912c3da944d9aee79217d42ecbff7d3fa60 Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Sat, 23 Nov 2024 21:59:23 +0000
 Subject: [PATCH 49/56] NABU: disable Sensor Low Power Island

@@ -1,4 +1,4 @@
-From 8b3d0f83c0aee9043bb040df38f61cb1d31d2ff9 Mon Sep 17 00:00:00 2001
+From c8b260041b58cbfdda5ee74b74e95bf3d887080f Mon Sep 17 00:00:00 2001
 From: Catmengi <138163939+catmengi@users.noreply.github.com>
 Date: Tue, 19 Nov 2024 09:48:28 +0000
 Subject: [PATCH 47/56] arch: arm64: boot: dts: qcom: sm8150.dtsi: change reset
@@ -10,7 +10,7 @@ This is needed in some nabu tablets to fix UFS
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index 81df34375da7..1ac0c9c34140 100644
+index 63b4dc973497..5840740f33a4 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
 @@ -2088,7 +2088,7 @@ ufs_mem_hc: ufshc@1d84000 {

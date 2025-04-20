@@ -1,4 +1,4 @@
-From 01bfc2a732e274908af6aca4539e67e161d94904 Mon Sep 17 00:00:00 2001
+From 4c60670c7640dfaf1d236b4d2e5df1bff90a3431 Mon Sep 17 00:00:00 2001
 From: map220v <map220v300@gmail.com>
 Date: Thu, 20 Jul 2023 16:18:32 +0300
 Subject: [PATCH 08/56] drm/panel: nt36523: Add Xiaomi Pad 5 CSOT panel

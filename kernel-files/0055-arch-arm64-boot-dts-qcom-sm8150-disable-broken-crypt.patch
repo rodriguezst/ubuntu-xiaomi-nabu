@@ -1,4 +1,4 @@
-From b59a5b68b69dd36eab113752591dc1295011a420 Mon Sep 17 00:00:00 2001
+From ae51c5be9e1c21f4209201e4708672f09977156c Mon Sep 17 00:00:00 2001
 From: Nicola Guerrera <guerrera.nicola@gmail.com>
 Date: Sat, 11 Jan 2025 23:55:24 +0100
 Subject: [PATCH 55/56] arch: arm64: boot: dts: qcom: sm8150 disable broken
@@ -9,7 +9,7 @@ Subject: [PATCH 55/56] arch: arm64: boot: dts: qcom: sm8150 disable broken
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
-index ad9c15d9dada..27ae08c231c9 100644
+index ae9d1eb9662c..6a97e0606ae0 100644
 --- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
 +++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
 @@ -2177,6 +2177,7 @@ crypto: crypto@1dfa000 {
