@@ -82,7 +82,7 @@ ukify build \
     --devicetree="../linux-xiaomi-nabu/boot/dtb-$_kernel_version" \
     --secureboot-private-key="../sb.key" \
     --secureboot-certificate="../sb.crt" \
-    --output="../uki-$_kernel_version.efi"
+    --output="../linux-xiaomi-nabu/boot/efi/EFI/ubuntu/uki-$_kernel_version.efi"
 
 # Update package version
 echo "Updating package version..."

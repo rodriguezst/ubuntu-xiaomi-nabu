@@ -7,6 +7,7 @@ set -euo pipefail
 VERSION="24.04.2"
 IMAGE_SIZE="10G"
 ROOTFS_IMAGE="rootfs.img"
+ESP_IMAGE="esp.img"
 ROOTDIR="rootdir"
 HOSTNAME="xiaomi-nabu"
 DNS_SERVER="1.1.1.1"
@@ -50,6 +51,13 @@ truncate -s "$IMAGE_SIZE" "$ROOTFS_IMAGE"
 mkfs.ext4 "$ROOTFS_IMAGE"
 mkdir -p "$ROOTDIR"
 mount -o loop "$ROOTFS_IMAGE" "$ROOTDIR"
+
+# Create and mount esp image
+echo "Creating esp image..."
+truncate -s "200M" "$ESP_IMAGE"
+mkfs.fat -F 32 "$ESP_IMAGE"
+mkdir -p "$ROOTDIR/boot/efi"
+mount -o loop "$ESP_IMAGE" "$ROOTDIR/boot/efi"
 
 # Download and extract Ubuntu base
 echo "Downloading Ubuntu base system..."
@@ -147,25 +155,52 @@ if ! uname -m | grep -q aarch64; then
     rm -f "$ROOTDIR/qemu-aarch64-static" qemu-aarch64-static
 fi
 
+# Unmount necessary filesystems
+echo "Unmounting system directories..."
+for dir in dev dev/pts proc sys; do
+    umount "$ROOTDIR/$dir"
+done
+echo "Unmounting rootfs and esp..."
+umount "$ROOTDIR/boot/efi"
+umount "$ROOTDIR"
+
 # Sparsify the image using android-sdk-libsparse-utils
 echo "Sparsifying rootfs image..."
 # Remove .img extension and create sparse image
-SPARSE_IMAGE="${ROOTFS_IMAGE%.img}.sparse.img"
+SPARSE_FS_IMAGE="${ROOTFS_IMAGE%.img}.sparse.img"
 if ! command -v img2simg &> /dev/null; then
     echo "Error: img2simg not found." >&2
     exit 1
 fi
 
-if ! img2simg "$ROOTFS_IMAGE" "$SPARSE_IMAGE" 2>/dev/null; then
+if ! img2simg "$ROOTFS_IMAGE" "$SPARSE_FS_IMAGE" 2>/dev/null; then
     echo "Error: Failed to create sparse image from $ROOTFS_IMAGE" >&2
     exit 1
 fi
-echo "Successfully created sparse image: $SPARSE_IMAGE"
+echo "Successfully created sparse image: $SPARSE_FS_IMAGE"
 
-# Compress both images in parallel
+# Sparsify the image using android-sdk-libsparse-utils
+echo "Sparsifying esp image..."
+# Remove .img extension and create sparse image
+SPARSE_ESP_IMAGE="${ESP_IMAGE%.img}.sparse.img"
+if ! command -v img2simg &> /dev/null; then
+    echo "Error: img2simg not found." >&2
+    exit 1
+fi
+
+if ! img2simg "$ESP_IMAGE" "$SPARSE_ESP_IMAGE" 2>/dev/null; then
+    echo "Error: Failed to create sparse image from $ESP_IMAGE" >&2
+    exit 1
+fi
+echo "Successfully created sparse image: $SPARSE_ESP_IMAGE"
+
+
+# Compress images in parallel
 echo "Compressing images..."
 xz "$ROOTFS_IMAGE" &
-xz "$SPARSE_IMAGE" &
+xz "$SPARSE_FS_IMAGE" &
+xz "$ESP_IMAGE" &
+xz "$SPARSE_ESP_IMAGE" &
 wait
 
 echo "Build complete!"
