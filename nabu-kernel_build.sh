@@ -75,6 +75,7 @@ cp "arch/arm64/boot/Image.gz" "../linux-xiaomi-nabu/boot/vmlinuz-$_kernel_versio
 cp "arch/arm64/boot/dts/$DTB_PATH" "../linux-xiaomi-nabu/boot/dtb-$_kernel_version"
 
 # Build Unified Kernel Image (UKI)
+mkdir -p "../linux-xiaomi-nabu/boot/efi/EFI/ubuntu"
 ukify build \
     --linux="../linux-xiaomi-nabu/boot/vmlinux-$_kernel_version" \
     --cmdline="console=tty0 root=PARTLABEL=linux quiet splash" \
