@@ -155,14 +155,40 @@ if ! uname -m | grep -q aarch64; then
     rm -f "$ROOTDIR/qemu-aarch64-static" qemu-aarch64-static
 fi
 
-# Unmount necessary filesystems
-echo "Unmounting system directories..."
-for dir in dev dev/pts proc sys; do
-    umount "$ROOTDIR/$dir"
+CHROOT_DIRS=(
+    "$ROOTDIR/proc"
+    "$ROOTDIR/sys"
+    "$ROOTDIR/dev/pts"
+    "$ROOTDIR/dev"
+    "$ROOTDIR/boot/efi"
+    "$ROOTDIR"
+)
+
+for dir in "${CHROOT_DIRS[@]}"
+do
+  echo "Killing processes using $dir..."
+  lsof $dir
+  for pid in $(lsof -t "$dir"); do 
+    kill $pid
+    # Wait for process to terminate
+    sleep 5
+    if kill -0 $pid 2>/dev/null; then
+      # Force process to terminate
+      echo "Forcing pid $pid to terminate..."
+      kill -9 $pid
+    fi
+  done
 done
-echo "Unmounting rootfs and esp..."
-umount "$ROOTDIR/boot/efi"
-umount "$ROOTDIR"
+
+echo "Unmounting directories..."
+
+for dir in "${CHROOT_DIRS[@]}"
+do
+  umount -R "$dir"
+  if [ $? -ne 0 ]; then
+    echo "Error unmounting $dir"
+  fi
+done
 
 # Sparsify the image using android-sdk-libsparse-utils
 echo "Sparsifying rootfs image..."
