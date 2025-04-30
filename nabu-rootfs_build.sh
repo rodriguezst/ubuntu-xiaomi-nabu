@@ -184,7 +184,7 @@ echo "Unmounting directories..."
 
 for dir in "${CHROOT_DIRS[@]}"
 do
-  umount -R "$dir"
+  umount -lf "$dir"
   if [ $? -ne 0 ]; then
     echo "Error unmounting $dir"
   fi
